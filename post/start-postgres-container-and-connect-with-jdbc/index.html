@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Start Postgres container and connect with JDBC"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Start Postgres container and connect with JDBC &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/post/start-postgres-container-and-connect-with-jdbc/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2015-01-14T22:57:00Z" />
+
+    
+    <meta property="article:tag" content="postgres" />
+    
+    <meta property="article:tag" content="spotify" />
+    
+    <meta property="article:tag" content="docker" />
+    
+    <meta property="article:tag" content="code" />
+    
+    
+
+    <title>Start Postgres container and connect with JDBC &middot; snips</title>
+
+    
+    <meta name="description" content="Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
+This supposes a running Docker installation on your loc" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/post/start-postgres-container-and-connect-with-jdbc/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": /images/logo.jpg
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Start Postgres container and connect with JDBC,
+    "name": Start Postgres container and connect with JDBC,
+    "wordCount": 305,
+    "timeRequired": "PT2M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": /post/start-postgres-container-and-connect-with-jdbc/,
+    "datePublished": 2015-01-14T22:57Z,
+    "dateModified": 2015-01-14T22:57Z,
+    
+    "keywords": postgres, spotify, docker, code,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /post/start-postgres-container-and-connect-with-jdbc/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="/index.xml" >&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Start Postgres container and connect with JDBC</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2015-01-14T22:57:00Z">
+            Jan 14, 2015
+          </time>
+        
+         
+          <span class="post-tag small"><a href="/tags/postgres/">#postgres</a></span>
+         
+          <span class="post-tag small"><a href="/tags/spotify/">#spotify</a></span>
+         
+          <span class="post-tag small"><a href="/tags/docker/">#docker</a></span>
+         
+          <span class="post-tag small"><a href="/tags/code/">#code</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <p>Quick example of how to set up a Docker container with Postgresql, using the <a href="https://github.com/spotify/docker-client/">Spotify Docker Java client</a>.</p>
+
+<p>This supposes a running Docker installation on your local computer, for example using boot2docker.</p>
+
+<pre><code class="language-java">import com.google.common.base.Strings;
+import com.google.common.net.HostAndPort;
+import com.spotify.docker.client.DefaultDockerClient;
+import com.spotify.docker.client.DockerCertificateException;
+import com.spotify.docker.client.DockerClient;
+import com.spotify.docker.client.DockerException;
+import com.spotify.docker.client.messages.ContainerConfig;
+import com.spotify.docker.client.messages.ContainerCreation;
+import com.spotify.docker.client.messages.ContainerInfo;
+import com.spotify.docker.client.messages.HostConfig;
+import lombok.extern.slf4j.Slf4j;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+@Slf4j
+public abstract class PostgresContainerExample {
+
+	public static Connection setUpDbContainer() throws SQLException {
+		try {
+			// This will only work with the DOCKER_HOST environment variable set
+			final DockerClient docker = DefaultDockerClient.fromEnv().build();
+			final ContainerConfig config = ContainerConfig.builder()
+					.image(&quot;postgres:9.3&quot;)
+					.build();
+			final ContainerCreation creation = docker.createContainer(config);
+			final String id = creation.id();
+
+			final HostConfig hostConfig = HostConfig.builder()
+					.publishAllPorts(true)
+					.build();
+
+			// Container is now created, let's start it up
+			docker.startContainer(id, hostConfig);
+
+			// startContainer swallows errors, so check if the container is in the running state
+			final ContainerInfo info = docker.inspectContainer(id);
+			if (!info.state().running()) {
+				throw new IllegalStateException(&quot;Could not start Postgres container&quot;);
+			}
+
+			// We need to build a connection string to connect to Postgres
+			// Fiddly way to find the host, relies on the environment variable.
+			final String endpoint = System.getenv(&quot;DOCKER_HOST&quot;);
+			final HostAndPort hostAndPort = HostAndPort.fromString(endpoint.replaceAll(&quot;.*://&quot;, &quot;&quot;));
+			final String hostText = hostAndPort.getHostText();
+			final String address = Strings.isNullOrEmpty(hostText) ? &quot;127.0.0.1&quot; : hostText;
+
+			// Find the random port in the network settings
+			final int port = Integer.valueOf(info.networkSettings().ports().get(&quot;5432/tcp&quot;).get(0).hostPort());
+
+			final String connectionString = String.format(&quot;jdbc:postgresql://%s:%d/postgres?user=postgres&quot;, address, port);
+
+			// It takes a while for the Postgres application to start up inside the container. We're going to give it 5 seconds.
+			Connection conn = null;
+			int tries = 1;
+			while (conn == null &amp;&amp; tries &lt;= 10) {
+				try {
+					conn = DriverManager.getConnection(connectionString);
+				} catch (SQLException ignored) {
+					tries++;
+					log.debug(&quot;Retrying ({}/10)...&quot;, tries);
+
+					Thread.sleep(500);
+				}
+			}
+			return conn;
+		} catch (DockerCertificateException | InterruptedException | DockerException e) {
+			e.printStackTrace();
+		}
+		throw new SQLException(&quot;Could not connect to Postgres container&quot;);
+	}
+}
+</code></pre>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/" style="background-image: url(/images/logo.jpg)"><span class="hidden">Remmelt Pit's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/">Remmelt Pit</a></h4>
+  
+  <p>Read <a href="/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    <span class="author-link icon-link"><a href="http://blog.remmelt.com/">http://blog.remmelt.com/</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Start%20Postgres%20container%20and%20connect%20with%20JDBC&nbsp;-&nbsp;snips&amp;url=%2fpost%2fstart-postgres-container-and-connect-with-jdbc%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fstart-postgres-container-and-connect-with-jdbc%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fpost%2fstart-postgres-container-and-connect-with-jdbc%2f&amp;description=Start%20Postgres%20container%20and%20connect%20with%20JDBC"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fpost%2fstart-postgres-container-and-connect-with-jdbc%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blogremmeltcom';
+  var disqus_url = '\/post\/start-postgres-container-and-connect-with-jdbc\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/post/file-upload-using-dropwizard-0-8-0-rc2/">
+          <section class="post">
+              <h2>File upload using Dropwizard 0.8.0-rc2</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/post/docker-swarm-setup/">
+          <section class="post">
+              <h2>Docker Swarm setup</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        
+        <meta name="twitter:card" content="summary_large_image"/>
+        <meta name="twitter:image" content="/images/zero-wireless-1.png"/>
+    
+
+
+
+<meta name="twitter:title" content="Easy headless setup for Raspberry Pi Zero W on OSX"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Easy headless setup for Raspberry Pi Zero W on OSX &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/" />
+
+    
+       <meta property="og:image" content="/images/zero-wireless-1.png"/>
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2017-03-17T21:47:00Z" />
+
+    
+    <meta property="article:tag" content="osx" />
+    
+    <meta property="article:tag" content="raspberry pi" />
+    
+    <meta property="article:tag" content="docker" />
+    
+    
+
+    <title>Easy headless setup for Raspberry Pi Zero W on OSX &middot; snips</title>
+
+    
+    <meta name="description" content="You&amp;rsquo;ve got your hands on a Rasberry Pi Zero W! Lucky you. This is a great device for IoT, monitoring, you name it. I&amp;rsquo;m building a connected wake up " />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": /images/logo.jpg
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Easy headless setup for Raspberry Pi Zero W on OSX,
+    "name": Easy headless setup for Raspberry Pi Zero W on OSX,
+    "wordCount": 353,
+    "timeRequired": "PT2M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": /post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/,
+    "datePublished": 2017-03-17T21:47Z,
+    "dateModified": 2017-03-17T21:47Z,
+    
+    "image": {
+        "@type": "ImageObject",
+        "url": //images/zero-wireless-1.png,
+        "width": 3000,
+        "height": 1445
+    },
+    
+    "keywords": osx, raspberry pi, docker,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+  
+  <header class="main-header post-head" style="background-image: url(/images/zero-wireless-1.png)">
+  
+  <nav class="main-nav overlay clearfix">
+
+
+  
+      <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="/index.xml" >&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Easy headless setup for Raspberry Pi Zero W on OSX</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2017-03-17T21:47:00Z">
+            Mar 17, 2017
+          </time>
+        
+         
+          <span class="post-tag small"><a href="/tags/osx/">#osx</a></span>
+         
+          <span class="post-tag small"><a href="/tags/raspberry-pi/">#raspberry pi</a></span>
+         
+          <span class="post-tag small"><a href="/tags/docker/">#docker</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>You&rsquo;ve got your hands on a Rasberry Pi Zero W! Lucky you. This is a great device for IoT, monitoring, you name it. I&rsquo;m building a connected wake up light.</p>
+
+<p>I will explain how to set up the Raspberry Pi Zero W in headless mode, so without using a screen or keyboard. This will likely also work for any other wifi-equipped Raspberry. You will only need to power the board. Let me know what worked for you!</p>
+
+<p>It turns out that setting up the Pi with wifi is not so difficult. You&rsquo;ll need to do two things, enable SSH, and set the password for your wifi access point.</p>
+
+<p>First off, download the latest version of <a href="https://www.raspberrypi.org/downloads/raspbian/">raspbian from the site</a>. This will work with both the regular and the lite version. Unzip the image file so you will have a file called something like <code>2017-03-02-raspbian-jessie-lite.img</code>.</p>
+
+<h2 id="enabling-ssh">Enabling SSH</h2>
+
+<p>There are two partitions in the image file. One is <code>/boot</code> and the other is <code>/</code>. You&rsquo;ll have to create an empty file called <code>ssh</code> on the <code>/boot</code> partition.</p>
+
+<h2 id="configuring-wifi">Configuring wifi</h2>
+
+<p>In the root partition <code>/</code>, there is a file called <code>/etc/wpa_supplicant/wpa_supplicant.conf</code>. Add this bit of text to the end of the file:</p>
+
+<pre><code>network={
+    ssid=&quot;&lt;your wifi network name&gt;&quot;
+    psk=&quot;&lt;your wifi password&gt;&quot;
+}
+</code></pre>
+
+<p>Save, exit, and write the image to your SD card.</p>
+
+<h2 id="osx-though">OSX, though</h2>
+
+<p>I have a Mac, and on OSX you can&rsquo;t mount partitions that are formatted in <code>ext4</code> without external drivers. How do we write these files? We could start a virtual machine, possibly using <a href="https://www.vagrantup.com/">Vagrant</a>, but that seems like overkill for such a simple operation.
+<a href="https://www.docker.com/">Docker</a> to the rescue!</p>
+
+<p>I&rsquo;ve created a simple script that mounts both partitions, asks for your password, and writes the necessary files.</p>
+
+<p>The code is available in <a href="https://github.com/remmelt/docker-rpi-wifi-pw-setter">this GitHub repository</a>.</p>
+
+<p>An automated build for this Docker image is on the hub under <a href="https://hub.docker.com/r/remmelt/docker-rpi-wifi-pw-setter/">remmelt/docker-rpi-wifi-pw-setter</a>.</p>
+
+<p>Usage:</p>
+
+<pre><code>docker run --rm --privileged --tty --interactive --volume &quot;/full/path/to/unzipped/image.img:/images/image.img&quot; remmelt/docker-rpi-wifi-pw-setter
+</code></pre>
+
+<p>Just replace the <code>/full/path/to/unzipped/image.img</code> with the path to the downloaded and unzipped image, and you are good to go.</p>
+
+<p>You can also use the included <a href="https://raw.githubusercontent.com/remmelt/docker-rpi-wifi-pw-setter/master/run.sh"><code>run.sh</code> script</a>.
+<script type="text/javascript" src="https://asciinema.org/a/108090.js" id="asciicast-108090" async></script></p>
+
+<p>Have fun and let me know how it went!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/" style="background-image: url(/images/logo.jpg)"><span class="hidden">Remmelt Pit's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/">Remmelt Pit</a></h4>
+  
+  <p>Read <a href="/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    <span class="author-link icon-link"><a href="http://blog.remmelt.com/">http://blog.remmelt.com/</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Easy%20headless%20setup%20for%20Raspberry%20Pi%20Zero%20W%20on%20OSX&nbsp;-&nbsp;snips&amp;url=%2fpost%2feasy-headless-setup-for-raspberry-pi-zero-w-on-osx%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2feasy-headless-setup-for-raspberry-pi-zero-w-on-osx%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fpost%2feasy-headless-setup-for-raspberry-pi-zero-w-on-osx%2f&amp;description=Easy%20headless%20setup%20for%20Raspberry%20Pi%20Zero%20W%20on%20OSX"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fpost%2feasy-headless-setup-for-raspberry-pi-zero-w-on-osx%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blogremmeltcom';
+  var disqus_url = '\/post\/easy-headless-setup-for-raspberry-pi-zero-w-on-osx\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/post/use-consuls-kv-store-for-dropwizard-settings/">
+          <section class="post">
+              <h2>Use Consul&#39;s KV store for Dropwizard settings</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

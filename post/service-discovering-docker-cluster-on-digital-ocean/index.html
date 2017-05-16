@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Service discovering Docker cluster on Digital Ocean"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Service discovering Docker cluster on Digital Ocean &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/post/service-discovering-docker-cluster-on-digital-ocean/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2014-10-14T22:41:00Z" />
+
+    
+    <meta property="article:tag" content="docker" />
+    
+    
+
+    <title>Service discovering Docker cluster on Digital Ocean &middot; snips</title>
+
+    
+    <meta name="description" content="Jeff Lindsay wrote about &amp;ldquo;Consul Service Discovery with Docker&amp;rdquo; and Automatic Docker Service Announcement with Registrator. Using Docker&amp;rsquo;s eve" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/post/service-discovering-docker-cluster-on-digital-ocean/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": /images/logo.jpg
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Service discovering Docker cluster on Digital Ocean,
+    "name": Service discovering Docker cluster on Digital Ocean,
+    "wordCount": 874,
+    "timeRequired": "PT5M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": /post/service-discovering-docker-cluster-on-digital-ocean/,
+    "datePublished": 2014-10-14T22:41Z,
+    "dateModified": 2014-10-14T22:41Z,
+    
+    "keywords": docker,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /post/service-discovering-docker-cluster-on-digital-ocean/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="/index.xml" >&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Service discovering Docker cluster on Digital Ocean</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2014-10-14T22:41:00Z">
+            Oct 14, 2014
+          </time>
+        
+         
+          <span class="post-tag small"><a href="/tags/docker/">#docker</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p>Jeff Lindsay wrote about <a href="http://progrium.com/blog/2014/08/20/consul-service-discovery-with-docker/">&ldquo;Consul Service Discovery with Docker&rdquo;</a> and <a href="http://progrium.com/blog/2014/09/10/automatic-docker-service-announcement-with-registrator/">Automatic Docker Service Announcement with Registrator</a>.
+Using Docker&rsquo;s event stream is an elegant solution to finding out which containers are running on a particular host.
+Despite Jeff&rsquo;s documentation and videos, I couldn&rsquo;t get Consul to serve up the correct locations of my services.</p>
+
+<p>Here is a description of what I did to get a service discovering cluster to run on Digital Ocean.</p>
+
+<p>##Goal
+I want to have a highly available service running on my Docker cluster, discoverable by using some command line or code. One service should be able to find any number of other services and instances on any host in the system.</p>
+
+<p>##Overview of the solution
+<img src="/content/images/2014/12/docker1.jpg" alt="" />
+Each docker node has a Consul and a registrator container. They could also have some Nginx instances. The first node, here called &ldquo;docker1&rdquo;, can for example have one instance of HAProxy running, which will be the entrance to the Nginx cluster.
+For a production setup, you would typically set this up to not be a single point of failure.</p>
+
+<h2 id="set-up-digital-ocean">Set up Digital Ocean</h2>
+
+<p>Log in to your Digital Ocean account and start three droplets. Name them <code>docker1</code>, <code>docker2</code>, and <code>docker3</code>. Use the smallest size. Put them in the same region, enable private networking and select the &ldquo;Docker 1.3.0 on Ubuntu 14.04&rdquo; application. Last, add your SSH key if you have one configured.
+None of the Nginx containers are accessible directly from the open internet, only the HAProxy and Consul containers are.
+Wait for the droplets to start and ssh in to each one.</p>
+
+<p>The <code>eth0</code> interface is public, <code>eth1</code> is the private network. I&rsquo;m using this private network for Consul&rsquo;s internal communication.</p>
+
+<h2 id="start-consul">Start Consul</h2>
+
+<p>I used <a href="https://github.com/progrium/docker-consul"><code>progrium/consul</code></a> to start Consul in a Docker container.
+The <code>cmd:run</code> command comes in handy.</p>
+
+<p>First, execute the following command on each node to store the private IP in an environment variable:</p>
+
+<pre><code>PRIVATE_IP=$(ifconfig eth1 | awk -F ' *|:' '/inet addr/{print $4}')
+</code></pre>
+
+<h3 id="node-1">Node 1</h3>
+
+<p>The first host has a slightly different startup incantation:</p>
+
+<pre><code>$(docker run --rm progrium/consul cmd:run $PRIVATE_IP -d -p 8080:8500)
+</code></pre>
+
+<p>Let&rsquo;s break this apart.
+The <code>cmd:run</code> command outputs a <code>docker run</code> statement with all the ports linked correctly. This gets wrapped in a subshell.
+Next comes the IP address Consul should communicate over with other nodes. Last, I&rsquo;m passing <code>-d</code> and <code>-p 8080:8500</code> to the run command so the Consul container starts in daemon mode and exposes port 8080 on the host&rsquo;s public IP.</p>
+
+<p>Note the private IP for node 1, we&rsquo;ll need this in the next step. Run <code>ip addr show  eth1</code> to show the IP.</p>
+
+<h3 id="nodes-2-and-3">Nodes 2 and 3</h3>
+
+<p>For the last two nodes we need the private IP address of node 1. On both nodes, run:</p>
+
+<pre><code>JOIN_IP=&lt;private IP of docker1&gt;
+$(docker run --rm progrium/consul cmd:run $PRIVATE_IP::$JOIN_IP -d -p 8080:8500)
+</code></pre>
+
+<p>The two nodes will join the Consul cluster and all will be well.</p>
+
+<h2 id="start-registrator">Start registrator</h2>
+
+<p>When we start a Docker container with exposed ports, we want it to be registered with Consul automatically. For this, we have registrator.</p>
+
+<pre><code>docker run -v /var/run/docker.sock:/tmp/docker.sock -h $HOSTNAME -d --name registrator progrium/registrator consul://?????:8500
+</code></pre>
+
+<p>Wait&hellip; how can the registrator find the Consul container? We could link them using <code>--link</code>, we could find out and specify the Consul container&rsquo;s internal IP address using <code>docker inspect consul</code>.
+Instead, we&rsquo;re going to use another elegant solution that&rsquo;s part of Jeff&rsquo;s docker-consul image. When using the <code>cmd:run</code> command, port 53/udp (DNS) gets exposed on the docker engine IP, 172.17.42.1.</p>
+
+<p><em>Consul functions as a DNS server so we can find out the location of Consul itself using DNS.</em></p>
+
+<pre><code class="language-bash">docker run -v /var/run/docker.sock:/tmp/docker.sock -h $HOSTNAME -d --name registrator --dns 172.17.42.1 progrium/registrator consul://consul.service.consul:8500
+</code></pre>
+
+<p>This works for any container that wants to discover services. Note that <a href="https://github.com/progrium/docker-consul#dns">Jeff suggests using DNS exactly like this</a>. Since it&rsquo;s worded as a suggestion, I thought it would only  be a convenience. Instead, this is one of the keys to make this setup work. Follow Jeff&rsquo;s advice and set the <code>DOCKER_OPTS</code> env variable. For clarity&rsquo;s sake, I will keep on adding <code>--dns</code> to the docker run commands, but it&rsquo;s not necessary to do that if you set the environment variable correctly.</p>
+
+<p>##Conclusion
+Start a bunch of Nginx servers, use <code>docker run -dP nginx</code>. Then, run a container that has dig installed, for example <code>docker run --rm -ti --dns 172.17.42.1 remmelt/debian:sid-dig bash</code>.
+Request the SRV records: <code>dig nginx-80.service.consul SRV</code> and look!</p>
+
+<pre><code>; &lt;&lt;&gt;&gt; DiG 9.9.5-4.2-Debian &lt;&lt;&gt;&gt; nginx-80.service.consul SRV
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 1638
+;; flags: qr aa rd ra; QUERY: 1, ANSWER: 3, AUTHORITY: 0, ADDITIONAL: 3
+
+;; QUESTION SECTION:
+;nginx-80.service.consul.	IN	SRV
+
+;; ANSWER SECTION:
+nginx-80.service.consul. 0	IN	SRV	1 1 49168 docker1.node.dc1.consul.
+nginx-80.service.consul. 0	IN	SRV	1 1 49166 docker1.node.dc1.consul.
+nginx-80.service.consul. 0	IN	SRV	1 1 49164 docker1.node.dc1.consul.
+
+;; ADDITIONAL SECTION:
+docker1.node.dc1.consul. 0	IN	A	10.133.240.63
+docker1.node.dc1.consul. 0	IN	A	10.133.240.63
+docker1.node.dc1.consul. 0	IN	A	10.133.240.63
+
+;; Query time: 13 msec
+;; SERVER: 172.17.42.1#53(172.17.42.1)
+;; WHEN: Fri Oct 17 22:38:35 UTC 2014
+;; MSG SIZE  rcvd: 356
+</code></pre>
+
+<p>Consul responds with a list of nodes running the requested service, including ports, in random order.</p>
+
+<p>Automate this, for example using <a href="https://github.com/kelseyhightower/confd">Confd</a> or by requesting DNS SRV records in your application, and you have a service discovery!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/" style="background-image: url(/images/logo.jpg)"><span class="hidden">Remmelt Pit's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/">Remmelt Pit</a></h4>
+  
+  <p>Read <a href="/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    <span class="author-link icon-link"><a href="http://blog.remmelt.com/">http://blog.remmelt.com/</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Service%20discovering%20Docker%20cluster%20on%20Digital%20Ocean&nbsp;-&nbsp;snips&amp;url=%2fpost%2fservice-discovering-docker-cluster-on-digital-ocean%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fservice-discovering-docker-cluster-on-digital-ocean%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fpost%2fservice-discovering-docker-cluster-on-digital-ocean%2f&amp;description=Service%20discovering%20Docker%20cluster%20on%20Digital%20Ocean"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fpost%2fservice-discovering-docker-cluster-on-digital-ocean%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blogremmeltcom';
+  var disqus_url = '\/post\/service-discovering-docker-cluster-on-digital-ocean\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/post/docker-swarm-setup/">
+          <section class="post">
+              <h2>Docker Swarm setup</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/post/basic-dropwizard-example/">
+          <section class="post">
+              <h2>Basic Dropwizard example</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

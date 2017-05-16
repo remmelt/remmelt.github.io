@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:image" content="/images/cover.jpg"/>
+
+
+
+<meta name="twitter:title" content="Postgres"/>
+<meta name="twitter:description" content="thoughts &amp; ideas"/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Postgres &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/categories/postgres/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="thoughts &amp; ideas" />
+    
+
+    <title>Postgres &middot; snips</title>
+
+    
+    <meta name="description" content="thoughts &amp; ideas" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+        <link href="/categories/postgres/index.xml" rel="alternate" type="application/rss+xml" title="Postgres &middot; snips" />
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/categories/postgres/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        },
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "url": /,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /
+    },
+    "description": thoughts &amp; ideas
+}
+  </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/categories/postgres/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+	 
+  <header class="main-header tag-head" style="background-image: url(/images/cover.jpg)">
+  
+
+    <nav class="main-nav overlay clearfix">
+      
+        <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+      
+      
+        
+          <a class="menu-button icon-feed" href="/categories/postgres/index.xml">&nbsp;&nbsp;Subscribe</a>
+        
+      
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            <h1 class="page-title">Postgres</h1>
+            <h2 class="page-description">
+                
+            </h2>
+        </div>
+    </div>
+</header>
+
+<main class="content" role="main">
+    
+
+	<div class="extra-pagination inner">
+    <nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+	</div>
+
+	
+	   
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/post/start-postgres-container-and-connect-with-jdbc/">Start Postgres container and connect with JDBC</a></h2>
+    </header>
+    <section class="post-excerpt">
+        
+            <p>Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
+This supposes a running Docker installation on your local computer, for example using boot2docker.
+import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient. <a class="read-more" href="/post/start-postgres-container-and-connect-with-jdbc/">&raquo;</a></p>
+        
+    </section>
+    <footer class="post-meta">
+        
+        
+            
+            
+                Remmelt Pit
+            
+        
+
+        on
+            
+                <a href="/tags/postgres/">#postgres</a>,
+            
+                <a href="/tags/spotify/">#spotify</a>,
+            
+                <a href="/tags/docker/">#docker</a>,
+            
+                <a href="/tags/code/">#code</a>,
+            
+        
+        <time class="post-date" datetime="2015-01-14T22:57:00Z">
+            14 Jan 2015
+        </time>
+    </footer>
+</article>
+
+	
+
+	<nav class="pagination" role="navigation">
+	
+	<span class="page-number">Page 1 of 1</span>
+	
+</nav>
+
+</main>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>

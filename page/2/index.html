@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:image" content="/images/cover.jpg"/>
+
+
+
+<meta name="twitter:title" content="snips"/>
+<meta name="twitter:description" content="thoughts &amp; ideas"/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:description" content="thoughts &amp; ideas" />
+    
+
+    <title>snips</title>
+
+    
+    <meta name="description" content="thoughts &amp; ideas" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+      
+        <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+    {
+    "@context": "https://schema.org",
+    "@type": "Website",
+    "publisher": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        },
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "url": /,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /
+    },
+    "description": thoughts &amp; ideas
+}
+  </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+  <header class="main-header" style="background-image: url(/images/cover.jpg)">
+  
+
+
+    <nav class="main-nav overlay clearfix">
+        
+            <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Blog Logo" /></a>
+        
+        
+            
+              <a class="menu-button icon-feed" href="/index.xml">&nbsp;&nbsp;Subscribe</a>
+            
+        
+    </nav>
+    <div class="vertical">
+        <div class="main-header-content inner">
+            
+
+
+    <a class="bloglogo" href="https://github.com/remmelt" target="_blank">
+    <span class="icon-github" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+    <a class="bloglogo" href="https://twitter.com/remmelt_" target="_blank">
+        <span class="icon-twitter" style="color:white;font-size:2em"></span>
+    </a>
+&nbsp;
+
+
+
+
+
+
+
+
+
+
+
+
+            <h1 class="page-title">snips</h1>
+            <h2 class="page-description">thoughts &amp; ideas</h2>
+        </div>
+    </div>
+    <a class="scroll-down icon-arrow-left" href="#content"><span class="hidden">Scroll Down</span></a>
+</header>
+
+
+<main id="content" class="content" role="main">
+
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+    
+
+    
+    
+    
+
+    <div class="extra-pagination inner">
+        <nav class="pagination" role="navigation">
+	
+	    <a class="newer-posts" href="/">&larr; Newer Posts</a>
+	
+	<span class="page-number">Page 2 of 2</span>
+	
+</nav>
+
+    </div>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/post/docker-swarm-setup/">Docker Swarm setup</a></h2>
+    </header>
+    <section class="post-excerpt">
+        
+            <p>Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
+It&rsquo;s currently not super easy to set up, so here is how I did it.
+#Background
+The swarm executable discovers hosts by reading entries from the discovery url, discovery-stage.hub.docker.com/v1/clusters/TOKEN. Sample output:
+[&quot;128.199.36.196:2375&quot;,&quot;128.199.50.146:2375&quot;,&quot;128.199.32.159:2375&quot;]  As you can see, this is just a list of IP/port combinations. <a class="read-more" href="/post/docker-swarm-setup/">&raquo;</a></p>
+        
+    </section>
+    <footer class="post-meta">
+        
+        
+            
+            
+                Remmelt Pit
+            
+        
+
+        on
+            
+                <a href="/tags/swarm/">#swarm</a>,
+            
+                <a href="/tags/docker/">#docker</a>,
+            
+        
+        <time class="post-date" datetime="2014-12-07T22:17:00Z">
+            7 Dec 2014
+        </time>
+    </footer>
+</article>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/post/service-discovering-docker-cluster-on-digital-ocean/">Service discovering Docker cluster on Digital Ocean</a></h2>
+    </header>
+    <section class="post-excerpt">
+        
+            <p>Jeff Lindsay wrote about &ldquo;Consul Service Discovery with Docker&rdquo; and Automatic Docker Service Announcement with Registrator. Using Docker&rsquo;s event stream is an elegant solution to finding out which containers are running on a particular host. Despite Jeff&rsquo;s documentation and videos, I couldn&rsquo;t get Consul to serve up the correct locations of my services.
+Here is a description of what I did to get a service discovering cluster to run on Digital Ocean. <a class="read-more" href="/post/service-discovering-docker-cluster-on-digital-ocean/">&raquo;</a></p>
+        
+    </section>
+    <footer class="post-meta">
+        
+        
+            
+            
+                Remmelt Pit
+            
+        
+
+        on
+            
+                <a href="/tags/docker/">#docker</a>,
+            
+        
+        <time class="post-date" datetime="2014-10-14T22:41:00Z">
+            14 Oct 2014
+        </time>
+    </footer>
+</article>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/post/basic-dropwizard-example/">Basic Dropwizard example</a></h2>
+    </header>
+    <section class="post-excerpt">
+        
+            <p>I&rsquo;ve been trying out Dropwizard the last couple of months and it&rsquo;s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.
+I am going to write a couple of posts about Dropwizard. <a class="read-more" href="/post/basic-dropwizard-example/">&raquo;</a></p>
+        
+    </section>
+    <footer class="post-meta">
+        
+        
+            
+            
+                Remmelt Pit
+            
+        
+
+        on
+            
+                <a href="/tags/dropwizard/">#dropwizard</a>,
+            
+                <a href="/tags/microservice/">#microservice</a>,
+            
+        
+        <time class="post-date" datetime="2014-09-14T21:36:00Z">
+            14 Sep 2014
+        </time>
+    </footer>
+</article>
+
+    
+        
+<article class="post post">
+    <header class="post-header">
+        <h2 class="post-title"><a href="/post/minimal-guice-servlet-without-web-xml/">Minimal Guice Servlet without web.xml</a></h2>
+    </header>
+    <section class="post-excerpt">
+        
+            <p>Here are instructions and a sample project to help you set up a minimal Guice servlet project without web.xml. The sample project can be found at github.com/remmelt/guice-web-servlet under the minimal-setup tag. Running it is as easy as cloning the repository, mvn package and deploying the .war file in the target directory to a servlet 3.0 application server.
+##Dependencies Let&rsquo;s start with the pom.xml. We&rsquo;ll need the following dependencies:
+&lt;dependencies&gt; &lt;dependency&gt; &lt;groupId&gt;javax. <a class="read-more" href="/post/minimal-guice-servlet-without-web-xml/">&raquo;</a></p>
+        
+    </section>
+    <footer class="post-meta">
+        
+        
+            
+            
+                Remmelt Pit
+            
+        
+
+        
+        <time class="post-date" datetime="2014-04-14T08:05:00Z">
+            14 Apr 2014
+        </time>
+    </footer>
+</article>
+
+    
+
+    <nav class="pagination" role="navigation">
+	
+	    <a class="newer-posts" href="/">&larr; Newer Posts</a>
+	
+	<span class="page-number">Page 2 of 2</span>
+	
+</nav>
+
+
+
+</main>
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

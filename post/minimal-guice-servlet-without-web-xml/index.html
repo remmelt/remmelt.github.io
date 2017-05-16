@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Minimal Guice Servlet without web.xml"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Minimal Guice Servlet without web.xml &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/post/minimal-guice-servlet-without-web-xml/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2014-04-14T08:05:00Z" />
+
+    
+    
+
+    <title>Minimal Guice Servlet without web.xml &middot; snips</title>
+
+    
+    <meta name="description" content="Here are instructions and a sample project to help you set up a minimal Guice servlet project without web.xml. The sample project can be found at github.com/rem" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/post/minimal-guice-servlet-without-web-xml/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": /images/logo.jpg
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Minimal Guice Servlet without web.xml,
+    "name": Minimal Guice Servlet without web.xml,
+    "wordCount": 412,
+    "timeRequired": "PT2M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": /post/minimal-guice-servlet-without-web-xml/,
+    "datePublished": 2014-04-14T08:05Z,
+    "dateModified": 2014-04-14T08:05Z,
+    
+    
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /post/minimal-guice-servlet-without-web-xml/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="/index.xml" >&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Minimal Guice Servlet without web.xml</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2014-04-14T08:05:00Z">
+            Apr 14, 2014
+          </time>
+        
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      <p>Here are instructions and a sample project to help you set up a minimal Guice servlet project without web.xml. The sample project can be found at <a href="https://github.com/remmelt/guice-web-servlet/tree/minimal-setup">github.com/remmelt/guice-web-servlet under the minimal-setup tag</a>. Running it is as easy as cloning the repository, <code>mvn package</code> and deploying the <code>.war</code> file in the <code>target</code> directory to a servlet 3.0 application server.</p>
+
+<p>##Dependencies
+Let&rsquo;s start with the <code>pom.xml</code>. We&rsquo;ll need the following dependencies:</p>
+
+<pre><code class="language-xml">	&lt;dependencies&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+			&lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+			&lt;version&gt;3.0.1&lt;/version&gt;
+			&lt;scope&gt;provided&lt;/scope&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;
+			&lt;groupId&gt;com.google.inject&lt;/groupId&gt;
+			&lt;artifactId&gt;guice&lt;/artifactId&gt;
+			&lt;version&gt;3.0&lt;/version&gt;
+		&lt;/dependency&gt;
+		&lt;dependency&gt;	&lt;groupId&gt;com.google.inject.extensions&lt;/groupId&gt;
+			&lt;artifactId&gt;guice-servlet&lt;/artifactId&gt;
+			&lt;version&gt;3.0&lt;/version&gt;
+		&lt;/dependency&gt;
+	&lt;/dependencies&gt;
+</code></pre>
+
+<p>##WebListener
+Next is the web listener.
+This is where the Guice injector and the ServletModule are created.
+According to the <a href="https://code.google.com/p/google-guice/wiki/ServletModule">Guice documentation</a>, the listener is the logical place to configure binding. I have done so on line 10, where I&rsquo;m binding the MessageSenderImpl implementation to the MessageSender interface.</p>
+
+<pre><code class="language-java">@WebListener
+public class GuiceServletConfig extends GuiceServletContextListener {
+	@Override
+	protected Injector getInjector() {
+		return Guice.createInjector(new ServletModule() {
+			@Override
+			protected void configureServlets() {
+				super.configureServlets();
+				serve(&quot;/*&quot;).with(WiredServlet.class);
+				bind(MessageSender.class).to(MessageSenderImpl.class);
+			}
+		});
+	}
+}
+</code></pre>
+
+<p>##WebFilter
+Note that you can also add filters in the configureServlets method like this: <code>filter(&quot;/*&quot;).through(MyFilter.class);</code> Somehow these filters were not picked up by my webapp, so I created a separate WebFilter-annotated class. See below.</p>
+
+<pre><code class="language-java">@WebFilter(&quot;/*&quot;)
+public class GuiceWebFilter extends GuiceFilter{
+	@Override
+	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
+		super.doFilter(servletRequest, servletResponse, filterChain);
+	}
+}
+</code></pre>
+
+<p>##The Servlet
+I have configured the ServletModule to serve anything <code>&quot;/*&quot;</code> with the <code>WiredServlet</code> class.
+This class needs to be a singleton.
+Of note in this class is the injected <code>MessageSender</code> service interface. The <code>messageSender</code> object will get bound by the <code>MessageSenderImpl</code> class due to the <code>bind(MessageSender.class).to(MessageSenderImpl.class);</code> line in the <code>WebListener</code>.</p>
+
+<pre><code class="language-java">@Singleton
+public class WiredServlet extends HttpServlet {
+	@Inject
+	private MessageSender messageSender;
+
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.getOutputStream().print(messageSender.sendMessage(&quot;Hello world!&quot;));
+	}
+}
+</code></pre>
+
+<p>##Service and implementation
+Finally we&rsquo;ll need a service interface and its implementation.</p>
+
+<pre><code class="language-java">public interface MessageSender {
+	String sendMessage(String msg);
+}
+</code></pre>
+
+<pre><code class="language-java">public class MessageSenderImpl implements MessageSender {
+	@Override
+	public String sendMessage(String msg) {
+		return &quot;Message sent: &quot; + msg;
+	}
+}
+</code></pre>
+
+<p>##Result
+Package the project using <code>mvn clean package</code> from the command line. This will result in a <code>.war</code> file in the <code>target</code> directory. Deploy this to any <code>servlet-api 3.0</code> application server, I&rsquo;m using Tomcat 7.0.x.
+Visit the resulting site, any URL will be picked up by <code>&quot;/*&quot;</code>.
+For Tomcat, try visiting <a href="http://localhost:8080/">localhost:8080</a>. Any page should display <code>Message sent: Hello world!</code>
+The <code>Hello world!</code> message was &ldquo;sent&rdquo; by the bound MessageSenderImpl implementation.</p>
+
+<p>Now start binding parameters!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/" style="background-image: url(/images/logo.jpg)"><span class="hidden">Remmelt Pit's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/">Remmelt Pit</a></h4>
+  
+  <p>Read <a href="/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    <span class="author-link icon-link"><a href="http://blog.remmelt.com/">http://blog.remmelt.com/</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Minimal%20Guice%20Servlet%20without%20web.xml&nbsp;-&nbsp;snips&amp;url=%2fpost%2fminimal-guice-servlet-without-web-xml%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fminimal-guice-servlet-without-web-xml%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fpost%2fminimal-guice-servlet-without-web-xml%2f&amp;description=Minimal%20Guice%20Servlet%20without%20web.xml"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fpost%2fminimal-guice-servlet-without-web-xml%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blogremmeltcom';
+  var disqus_url = '\/post\/minimal-guice-servlet-without-web-xml\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/post/basic-dropwizard-example/">
+          <section class="post">
+              <h2>Basic Dropwizard example</h2>
+              
+          </section>
+      </a>
+  
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on snips</title>
+    <link>/categories/docker/</link>
+    <description>Recent content in Docker on snips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <copyright>(c) 2017 - Remmelt Pit</copyright>
+    <lastBuildDate>Fri, 17 Mar 2017 21:47:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Easy headless setup for Raspberry Pi Zero W on OSX</title>
+      <link>/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</link>
+      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
+      
+      <guid>/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</guid>
+      <description>You&amp;rsquo;ve got your hands on a Rasberry Pi Zero W! Lucky you. This is a great device for IoT, monitoring, you name it. I&amp;rsquo;m building a connected wake up light.
+I will explain how to set up the Raspberry Pi Zero W in headless mode, so without using a screen or keyboard. This will likely also work for any other wifi-equipped Raspberry. You will only need to power the board.</description>
+    </item>
+    
+    <item>
+      <title>Start Postgres container and connect with JDBC</title>
+      <link>/post/start-postgres-container-and-connect-with-jdbc/</link>
+      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
+      
+      <guid>/post/start-postgres-container-and-connect-with-jdbc/</guid>
+      <description>Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
+This supposes a running Docker installation on your local computer, for example using boot2docker.
+import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient.</description>
+    </item>
+    
+    <item>
+      <title>Docker Swarm setup</title>
+      <link>/post/docker-swarm-setup/</link>
+      <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
+      
+      <guid>/post/docker-swarm-setup/</guid>
+      <description>Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
+It&amp;rsquo;s currently not super easy to set up, so here is how I did it.
+#Background
+The swarm executable discovers hosts by reading entries from the discovery url, discovery-stage.hub.docker.com/v1/clusters/TOKEN. Sample output:
+[&amp;quot;128.199.36.196:2375&amp;quot;,&amp;quot;128.199.50.146:2375&amp;quot;,&amp;quot;128.199.32.159:2375&amp;quot;]  As you can see, this is just a list of IP/port combinations.</description>
+    </item>
+    
+    <item>
+      <title>Service discovering Docker cluster on Digital Ocean</title>
+      <link>/post/service-discovering-docker-cluster-on-digital-ocean/</link>
+      <pubDate>Tue, 14 Oct 2014 22:41:00 +0000</pubDate>
+      
+      <guid>/post/service-discovering-docker-cluster-on-digital-ocean/</guid>
+      <description>Jeff Lindsay wrote about &amp;ldquo;Consul Service Discovery with Docker&amp;rdquo; and Automatic Docker Service Announcement with Registrator. Using Docker&amp;rsquo;s event stream is an elegant solution to finding out which containers are running on a particular host. Despite Jeff&amp;rsquo;s documentation and videos, I couldn&amp;rsquo;t get Consul to serve up the correct locations of my services.
+Here is a description of what I did to get a service discovering cluster to run on Digital Ocean.</description>
+    </item>
+    
+  </channel>
+</rss>

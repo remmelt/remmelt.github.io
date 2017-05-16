@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    
+    
+        <meta name="twitter:card" content="summary"/>
+    
+
+
+
+<meta name="twitter:title" content="Docker Swarm setup"/>
+<meta name="twitter:description" content=""/>
+<meta name="twitter:site" content="@remmelt_"/>
+
+
+
+  	<meta property="og:title" content="Docker Swarm setup &middot; snips" />
+  	<meta property="og:site_name" content="snips" />
+  	<meta property="og:url" content="/post/docker-swarm-setup/" />
+
+    
+        
+            <meta property="og:image" content="/images/cover.jpg"/>
+        
+    
+
+    
+    <meta property="og:description" content="" />
+  	<meta property="og:type" content="article" />
+    <meta property="article:published_time" content="2014-12-07T22:17:00Z" />
+
+    
+    <meta property="article:tag" content="swarm" />
+    
+    <meta property="article:tag" content="docker" />
+    
+    
+
+    <title>Docker Swarm setup &middot; snips</title>
+
+    
+    <meta name="description" content="Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable clus" />
+    
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+
+    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+
+    
+
+    
+        <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/styles/default.min.css">
+        <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.6.0/highlight.min.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+      
+          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+      
+      
+    
+    <meta name="generator" content="Hugo 0.20.7" />
+
+    <link rel="canonical" href="/post/docker-swarm-setup/" />
+
+    
+      
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": ,
+        "logo": /images/logo.jpg
+    },
+    "author": {
+        "@type": "Person",
+        "name": ,
+        
+        "image": {
+            "@type": "ImageObject",
+            "url": /images/logo.jpg,
+            "width": 250,
+            "height": 250
+        }, 
+        
+        "url": http://blog.remmelt.com/,
+        "sameAs": [
+            
+            
+             
+             
+             
+             
+             
+            
+        ]
+    },
+    "headline": Docker Swarm setup,
+    "name": Docker Swarm setup,
+    "wordCount": 689,
+    "timeRequired": "PT4M",
+    "inLanguage": {
+      "@type": "Language",
+      "alternateName": en
+    },
+    "url": /post/docker-swarm-setup/,
+    "datePublished": 2014-12-07T22:17Z,
+    "dateModified": 2014-12-07T22:17Z,
+    
+    "keywords": swarm, docker,
+    "description": ,
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": /post/docker-swarm-setup/
+    }
+}
+    </script>
+    
+
+
+    
+
+    
+
+    
+</head>
+<body class="nav-closed">
+
+  <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        
+        
+    </ul>
+
+    
+    <a class="subscribe-button icon-feed" href="/index.xml">Subscribe</a>
+    
+</div>
+<span class="nav-cover"></span>
+
+
+ <div class="site-wrapper">
+
+
+
+
+<header class="main-header post-head no-cover">
+  <nav class="main-nav clearfix">
+
+
+  
+      <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+  
+  
+      <a class="menu-button icon-feed" href="/index.xml" >&nbsp;&nbsp;Subscribe</a>
+  
+  </nav>
+</header>
+
+
+
+<main class="content" role="main">
+
+
+
+
+  <article class="post post">
+
+    <header class="post-header">
+        <h1 class="post-title">Docker Swarm setup</h1>
+        <small></small>
+
+        <section class="post-meta">
+        
+          <time class="post-date" datetime="2014-12-07T22:17:00Z">
+            Dec 7, 2014
+          </time>
+        
+         
+          <span class="post-tag small"><a href="/tags/swarm/">#swarm</a></span>
+         
+          <span class="post-tag small"><a href="/tags/docker/">#docker</a></span>
+         
+        </section>
+    </header>
+
+    <section class="post-content">
+      
+
+<p><img src="/content/images/2014/12/swarmlogo.png" alt="" /></p>
+
+<p><em>Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!</em></p>
+
+<p><a href="https://github.com/docker/swarm">Docker Swarm</a> was announced at the first <a href="http://europe.dockercon.com/">European DockerCon</a>. Swarm is a pluggable cluster manager with a simple scheduler.</p>
+
+<p>It&rsquo;s currently not super easy to set up, so here is how I did it.</p>
+
+<p>#Background</p>
+
+<p>The <code>swarm</code> executable discovers hosts by reading entries from the discovery url, <a href="https://discovery-stage.hub.docker.com/v1/clusters/TOKEN">discovery-stage.hub.docker.com/v1/clusters/TOKEN</a>. Sample output:</p>
+
+<pre><code class="language-json">[&quot;128.199.36.196:2375&quot;,&quot;128.199.50.146:2375&quot;,&quot;128.199.32.159:2375&quot;]
+</code></pre>
+
+<p>As you can see, this is just a list of IP/port combinations.</p>
+
+<p>Currently, <code>swarm</code> does not need to run on the hosts themselves. The hosts do need to run <code>docker</code> from the master branch, so the local <code>swarm</code> can talk to it.</p>
+
+<p>Here is a list of the main steps, I&rsquo;ll go into more detail later. tl;dr:
+1. Create a swarm token: <code>swarm create</code>
+2. Add hosts to the swarm: <code>swarm join --discovery=token://TOKEN --addr=host_ip:port</code>
+3. Start the swarm manager: <code>swarm manage --discovery=token://TOKEN --host=swarm_ip:port</code>
+4. Start containers in the swarm: <code>docker -H swarm_ip:port run -dP nginx</code></p>
+
+<h1 id="the-swarm-application">The <code>swarm</code> application</h1>
+
+<p>The <code>swarm</code> application does a couple of things. It creates a token, and you can add hosts to the discovery address with it. It also functions as a daemon with a rest API. All of these things can run from your local machine, any of your swarm hosts, or from a container.</p>
+
+<p>Swarm is not distributed as an executable at the moment, so we&rsquo;ll have to compile it. There are multiple options.</p>
+
+<p>If you want to manage your swarm from OSX, install golang using Homebrew: <code>brew install go</code>. Then, get and build the <code>swarm</code> executable by running</p>
+
+<pre><code>GOPATH=$(pwd) go get github.com/docker/swarm
+</code></pre>
+
+<p>You will find the OSX <code>swarm</code> executable under <code>bin/swarm</code>.</p>
+
+<p>If you are running Linux or want to compile for running on Linux using OSX, either install go or use the official go container:</p>
+
+<pre><code>docker run -v $(pwd):/go/bin --rm golang:1.3.3 go get github.com/docker/swarm
+</code></pre>
+
+<p>This will leave the Linux <code>swarm</code> binary in your current working directory.</p>
+
+<p>My favorite option is to just use a container for running <code>swarm</code>. You can use the image that I created in this <a href="https://registry.hub.docker.com/u/remmelt/swarm/">automated swarm build</a> or roll your own.</p>
+
+<p>#Prepare hosts
+The hosts need to run <code>docker</code> version 1.4.0 or higher.</p>
+
+<p>I&rsquo;m going to run this on Digital Ocean, using the <code>docker</code> image. Start up a new droplet, any size will do. Wait for it to boot, then <code>ssh</code> in and add <code>DOCKER_OPTS=&quot;-H 0.0.0.0:2375&quot;</code> to <code>/etc/default/docker</code>.</p>
+
+<p>Restart the daemon using <code>sudo service docker restart</code></p>
+
+<pre><code class="language-bash">ssh root@digitalocean_droplet
+
+service docker stop
+
+echo DOCKER_OPTS=\&quot;-H 0.0.0.0:2375 -H unix://var/run/docker.sock\&quot; &gt;&gt; /etc/default/docker
+
+service docker start
+</code></pre>
+
+<p>Repeat for all the hosts that you want to manage. Done!</p>
+
+<p>#Manager
+Now we&rsquo;re ready to start managing.</p>
+
+<p>##Create a new swarm token</p>
+
+<pre><code>swarm create
+``` will spit out a token. If you're using the swarm image, go
+</code></pre>
+
+<p>docker run &ndash;rm remmelt/swarm create</p>
+
+<pre><code>
+##Add each of your hosts to the swarm
+</code></pre>
+
+<p>swarm join &ndash;discovery=token://TOKEN &ndash;addr=a.b.c.d:2375</p>
+
+<pre><code>This will add address a.b.c.d:2375 to the swarm. Remember that you can see what is in the swarm by surfing to the [dicovery url](https://discovery-stage.hub.docker.com/v1/clusters/TOKEN).
+Running the image? Enter
+</code></pre>
+
+<p>docker run &ndash;rm remmelt/swarm join &ndash;discovery=token://TOKEN &ndash;addr=a.b.c.d:2375</p>
+
+<pre><code>
+Note that this command does not currently return. Once the IP has been added to the swarm, you can ctrl-c out. The `join` command does not need to keep running to stay joined.
+
+##Start the management API
+</code></pre>
+
+<p>swarm manage &ndash;discovery=token://TOKEN &ndash;host=0.0.0.0:4243</p>
+
+<pre><code>This will start the management API. Image:
+</code></pre>
+
+<p>docker run &ndash;rm -p 4243:4243 remmelt/swarm manage &ndash;discovery=token://XXXX &ndash;host=0.0.0.0:4243
+``` (we need the port to communicate with the API).</p>
+
+<p>##Start a container
+Use the <code>docker</code> binary to start a container as usual, but make sure the -H flag points to the host you&rsquo;re running <code>swarm manage</code> on. In my case, that&rsquo;s <code>boot2docker</code>.</p>
+
+<pre><code>docker -H boot2docker:4243 run -dP nginx
+</code></pre>
+
+<p>This will take a while, one of the nodes is downloading the <code>nginx</code> image. The command will return once the container has started.</p>
+
+<p>##List nodes</p>
+
+<pre><code>swarm list --discovery=token://TOKEN
+</code></pre>
+
+<p>or</p>
+
+<pre><code>docker run --rm remmelt/swarm list --discovery=token://TOKEN
+</code></pre>
+
+<p>##List containers</p>
+
+<pre><code>docker -H boot2docker:4243 ps
+</code></pre>
+
+<p>Note the names of the containers, they start with the name of the node they&rsquo;re running on.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<p>If you&rsquo;re getting a
+<code>
+tls: oversized record received with length
+</code> error, run <code>unset DOCKER_TLS_VERIFY</code> and it will work.</p>
+
+<p>Happy swarming!</p>
+
+    </section>
+
+
+  <footer class="post-footer">
+
+
+    
+    <figure class="author-image">
+        <a class="img" href="/" style="background-image: url(/images/logo.jpg)"><span class="hidden">Remmelt Pit's Picture</span></a>
+    </figure>
+    
+
+    
+
+
+
+
+
+<section class="author">
+  <h4><a href="/">Remmelt Pit</a></h4>
+  
+  <p>Read <a href="/">more posts</a> by this author.</p>
+  
+  <div class="author-meta">
+    
+    <span class="author-link icon-link"><a href="http://blog.remmelt.com/">http://blog.remmelt.com/</a></span>
+  </div>
+</section>
+
+
+
+    
+<section class="share">
+  <h4>Share this post</h4>
+  <a class="icon-twitter" style="font-size: 1.4em" href="https://twitter.com/share?text=Docker%20Swarm%20setup&nbsp;-&nbsp;snips&amp;url=%2fpost%2fdocker-swarm-setup%2f"
+      onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+      <span class="hidden">Twitter</span>
+  </a>
+  <a class="icon-facebook" style="font-size: 1.4em" href="https://www.facebook.com/sharer/sharer.php?u=%2fpost%2fdocker-swarm-setup%2f"
+      onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+      <span class="hidden">Facebook</span>
+  </a>
+  <a class="icon-pinterest" style="font-size: 1.4em" href="http://pinterest.com/pin/create/button/?url=%2fpost%2fdocker-swarm-setup%2f&amp;description=Docker%20Swarm%20setup"
+      onclick="window.open(this.href, 'pinterest-share','width=580,height=296');return false;">
+      <span class="hidden">Pinterest</span>
+  </a>
+  <a class="icon-google-plus" style="font-size: 1.4em" href="https://plus.google.com/share?url=%2fpost%2fdocker-swarm-setup%2f"
+     onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+      <span class="hidden">Google+</span>
+  </a>
+</section>
+
+
+
+    
+
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+  var disqus_shortname = 'blogremmeltcom';
+  var disqus_url = '\/post\/docker-swarm-setup\/';
+  (function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+
+  </footer>
+</article>
+
+</main>
+
+
+  <aside class="read-next">
+  
+      <a class="read-next-story" style="no-cover" href="/post/start-postgres-container-and-connect-with-jdbc/">
+          <section class="post">
+              <h2>Start Postgres container and connect with JDBC</h2>
+              
+          </section>
+      </a>
+  
+  
+      <a class="read-next-story prev" style="no-cover" href="/post/service-discovering-docker-cluster-on-digital-ocean/">
+          <section class="post">
+              <h2>Service discovering Docker cluster on Digital Ocean</h2>
+          </section>
+      </a>
+  
+</aside>
+
+
+
+    <footer class="site-footer clearfix">
+        <section class="copyright"><a href="">snips</a> (c) 2017 - Remmelt Pit</section>
+        
+        <section class="poweredby">Proudly generated by <a class="icon-hugo" href="http://gohugo.io">HUGO</a>, with <a class="icon-theme" href="https://github.com/vjeantet/hugo-theme-casper">Casper</a> theme</section>
+        
+    </footer>
+    </div>
+    <script type="text/javascript" src="/js/jquery.js"></script>
+    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/js/index.js"></script>
+    
+</body>
+</html>
+
