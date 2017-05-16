@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Config on snips</title>
-    <link>http://blog.remmelt.com/tags/config/</link>
+    <link>http://www.remmelt.com/tags/config/</link>
     <description>Recent content in Config on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Tue, 09 Jun 2015 20:18:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.remmelt.com/tags/config/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.remmelt.com/tags/config/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Use Consul&#39;s KV store for Dropwizard settings</title>
-      <link>http://blog.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</link>
+      <link>http://www.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</guid>
+      <guid>http://www.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</guid>
       <description>I wanted to see how hard it would be to get Dropwizard config from Consul&amp;rsquo;s key value store. Turns out it is very easy to do!
 Make sure you&amp;rsquo;re using Dropwizard &amp;gt;= 0.8.0, this has the SubstitutingSourceProvider that we&amp;rsquo;re going to use.
 Create a default Dropwizard project with the following configuration line in its config.yml:

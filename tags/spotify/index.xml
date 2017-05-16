@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Spotify on snips</title>
-    <link>http://blog.remmelt.com/tags/spotify/</link>
+    <link>http://www.remmelt.com/tags/spotify/</link>
     <description>Recent content in Spotify on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Wed, 14 Jan 2015 22:57:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.remmelt.com/tags/spotify/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.remmelt.com/tags/spotify/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Start Postgres container and connect with JDBC</title>
-      <link>http://blog.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</link>
+      <link>http://www.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</guid>
+      <guid>http://www.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</guid>
       <description>Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
 This supposes a running Docker installation on your local computer, for example using boot2docker.
 import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient.</description>

@@ -2,166 +2,166 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on snips</title>
-    <link>http://blog.remmelt.com/tags/</link>
+    <link>http://www.remmelt.com/tags/</link>
     <description>Recent content in Tags on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Tue, 09 Jun 2015 20:18:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.remmelt.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.remmelt.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Code</title>
-      <link>http://blog.remmelt.com/tags/code/</link>
+      <link>http://www.remmelt.com/tags/code/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/code/</guid>
+      <guid>http://www.remmelt.com/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Config</title>
-      <link>http://blog.remmelt.com/tags/config/</link>
+      <link>http://www.remmelt.com/tags/config/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/config/</guid>
+      <guid>http://www.remmelt.com/tags/config/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Consul</title>
-      <link>http://blog.remmelt.com/tags/consul/</link>
+      <link>http://www.remmelt.com/tags/consul/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/consul/</guid>
+      <guid>http://www.remmelt.com/tags/consul/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>http://blog.remmelt.com/tags/docker/</link>
+      <link>http://www.remmelt.com/tags/docker/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/docker/</guid>
+      <guid>http://www.remmelt.com/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dropwizard</title>
-      <link>http://blog.remmelt.com/tags/dropwizard/</link>
+      <link>http://www.remmelt.com/tags/dropwizard/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/dropwizard/</guid>
+      <guid>http://www.remmelt.com/tags/dropwizard/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hack Time</title>
-      <link>http://blog.remmelt.com/tags/hack-time/</link>
+      <link>http://www.remmelt.com/tags/hack-time/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/hack-time/</guid>
+      <guid>http://www.remmelt.com/tags/hack-time/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>http://blog.remmelt.com/tags/java/</link>
+      <link>http://www.remmelt.com/tags/java/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/java/</guid>
+      <guid>http://www.remmelt.com/tags/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jersey</title>
-      <link>http://blog.remmelt.com/tags/jersey/</link>
+      <link>http://www.remmelt.com/tags/jersey/</link>
       <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/jersey/</guid>
+      <guid>http://www.remmelt.com/tags/jersey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microservice</title>
-      <link>http://blog.remmelt.com/tags/microservice/</link>
+      <link>http://www.remmelt.com/tags/microservice/</link>
       <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/microservice/</guid>
+      <guid>http://www.remmelt.com/tags/microservice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multipart</title>
-      <link>http://blog.remmelt.com/tags/multipart/</link>
+      <link>http://www.remmelt.com/tags/multipart/</link>
       <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/multipart/</guid>
+      <guid>http://www.remmelt.com/tags/multipart/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Osx</title>
-      <link>http://blog.remmelt.com/tags/osx/</link>
+      <link>http://www.remmelt.com/tags/osx/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/osx/</guid>
+      <guid>http://www.remmelt.com/tags/osx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Postgres</title>
-      <link>http://blog.remmelt.com/tags/postgres/</link>
+      <link>http://www.remmelt.com/tags/postgres/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/postgres/</guid>
+      <guid>http://www.remmelt.com/tags/postgres/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Process</title>
-      <link>http://blog.remmelt.com/tags/process/</link>
+      <link>http://www.remmelt.com/tags/process/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/process/</guid>
+      <guid>http://www.remmelt.com/tags/process/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Raspberry Pi</title>
-      <link>http://blog.remmelt.com/tags/raspberry-pi/</link>
+      <link>http://www.remmelt.com/tags/raspberry-pi/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/raspberry-pi/</guid>
+      <guid>http://www.remmelt.com/tags/raspberry-pi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Settings</title>
-      <link>http://blog.remmelt.com/tags/settings/</link>
+      <link>http://www.remmelt.com/tags/settings/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/settings/</guid>
+      <guid>http://www.remmelt.com/tags/settings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spotify</title>
-      <link>http://blog.remmelt.com/tags/spotify/</link>
+      <link>http://www.remmelt.com/tags/spotify/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/spotify/</guid>
+      <guid>http://www.remmelt.com/tags/spotify/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Swarm</title>
-      <link>http://blog.remmelt.com/tags/swarm/</link>
+      <link>http://www.remmelt.com/tags/swarm/</link>
       <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/tags/swarm/</guid>
+      <guid>http://www.remmelt.com/tags/swarm/</guid>
       <description></description>
     </item>
     

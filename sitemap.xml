@@ -2,273 +2,273 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://blog.remmelt.com/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</loc>
+    <loc>http://www.remmelt.com/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</loc>
+    <loc>http://www.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/why-does-hacktime-fail/</loc>
+    <loc>http://www.remmelt.com/post/why-does-hacktime-fail/</loc>
     <lastmod>2015-06-02T11:41:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/file-upload-using-dropwizard-0-8-0-rc2/</loc>
+    <loc>http://www.remmelt.com/post/file-upload-using-dropwizard-0-8-0-rc2/</loc>
     <lastmod>2015-02-15T21:27:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</loc>
+    <loc>http://www.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</loc>
     <lastmod>2015-01-14T22:57:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/docker-swarm-setup/</loc>
+    <loc>http://www.remmelt.com/post/docker-swarm-setup/</loc>
     <lastmod>2014-12-07T22:17:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/service-discovering-docker-cluster-on-digital-ocean/</loc>
+    <loc>http://www.remmelt.com/post/service-discovering-docker-cluster-on-digital-ocean/</loc>
     <lastmod>2014-10-14T22:41:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/basic-dropwizard-example/</loc>
+    <loc>http://www.remmelt.com/post/basic-dropwizard-example/</loc>
     <lastmod>2014-09-14T21:36:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/minimal-guice-servlet-without-web-xml/</loc>
+    <loc>http://www.remmelt.com/post/minimal-guice-servlet-without-web-xml/</loc>
     <lastmod>2014-04-14T08:05:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/</loc>
+    <loc>http://www.remmelt.com/categories/</loc>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/code/</loc>
+    <loc>http://www.remmelt.com/tags/code/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/code/</loc>
+    <loc>http://www.remmelt.com/categories/code/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/config/</loc>
+    <loc>http://www.remmelt.com/tags/config/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/config/</loc>
+    <loc>http://www.remmelt.com/categories/config/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/consul/</loc>
+    <loc>http://www.remmelt.com/tags/consul/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/consul/</loc>
+    <loc>http://www.remmelt.com/categories/consul/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/docker/</loc>
+    <loc>http://www.remmelt.com/tags/docker/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/docker/</loc>
+    <loc>http://www.remmelt.com/categories/docker/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/dropwizard/</loc>
+    <loc>http://www.remmelt.com/tags/dropwizard/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/dropwizard/</loc>
+    <loc>http://www.remmelt.com/categories/dropwizard/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/hack-time/</loc>
+    <loc>http://www.remmelt.com/tags/hack-time/</loc>
     <lastmod>2015-06-02T11:41:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/hack-time/</loc>
+    <loc>http://www.remmelt.com/categories/hack-time/</loc>
     <lastmod>2015-06-02T11:41:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/java/</loc>
+    <loc>http://www.remmelt.com/tags/java/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/java/</loc>
+    <loc>http://www.remmelt.com/categories/java/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/jersey/</loc>
+    <loc>http://www.remmelt.com/tags/jersey/</loc>
     <lastmod>2015-02-15T21:27:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/jersey/</loc>
+    <loc>http://www.remmelt.com/categories/jersey/</loc>
     <lastmod>2015-02-15T21:27:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/microservice/</loc>
+    <loc>http://www.remmelt.com/tags/microservice/</loc>
     <lastmod>2014-09-14T21:36:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/microservice/</loc>
+    <loc>http://www.remmelt.com/categories/microservice/</loc>
     <lastmod>2014-09-14T21:36:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/multipart/</loc>
+    <loc>http://www.remmelt.com/tags/multipart/</loc>
     <lastmod>2015-02-15T21:27:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/multipart/</loc>
+    <loc>http://www.remmelt.com/categories/multipart/</loc>
     <lastmod>2015-02-15T21:27:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/osx/</loc>
+    <loc>http://www.remmelt.com/tags/osx/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/osx/</loc>
+    <loc>http://www.remmelt.com/categories/osx/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/postgres/</loc>
+    <loc>http://www.remmelt.com/tags/postgres/</loc>
     <lastmod>2015-01-14T22:57:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/postgres/</loc>
+    <loc>http://www.remmelt.com/categories/postgres/</loc>
     <lastmod>2015-01-14T22:57:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/post/</loc>
+    <loc>http://www.remmelt.com/post/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/process/</loc>
+    <loc>http://www.remmelt.com/tags/process/</loc>
     <lastmod>2015-06-02T11:41:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/process/</loc>
+    <loc>http://www.remmelt.com/categories/process/</loc>
     <lastmod>2015-06-02T11:41:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/raspberry-pi/</loc>
+    <loc>http://www.remmelt.com/tags/raspberry-pi/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/raspberry-pi/</loc>
+    <loc>http://www.remmelt.com/categories/raspberry-pi/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/settings/</loc>
+    <loc>http://www.remmelt.com/tags/settings/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/settings/</loc>
+    <loc>http://www.remmelt.com/categories/settings/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/spotify/</loc>
+    <loc>http://www.remmelt.com/tags/spotify/</loc>
     <lastmod>2015-01-14T22:57:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/spotify/</loc>
+    <loc>http://www.remmelt.com/categories/spotify/</loc>
     <lastmod>2015-01-14T22:57:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/swarm/</loc>
+    <loc>http://www.remmelt.com/tags/swarm/</loc>
     <lastmod>2014-12-07T22:17:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/categories/swarm/</loc>
+    <loc>http://www.remmelt.com/categories/swarm/</loc>
     <lastmod>2014-12-07T22:17:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/tags/</loc>
+    <loc>http://www.remmelt.com/tags/</loc>
     <lastmod>2015-06-09T20:18:00+00:00</lastmod>
     <priority>0</priority>
   </url>
   
   <url>
-    <loc>http://blog.remmelt.com/</loc>
+    <loc>http://www.remmelt.com/</loc>
     <lastmod>2017-03-17T21:47:00+00:00</lastmod>
     <priority>0</priority>
   </url>

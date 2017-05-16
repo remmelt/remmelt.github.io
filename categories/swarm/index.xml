@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Swarm on snips</title>
-    <link>http://blog.remmelt.com/categories/swarm/</link>
+    <link>http://www.remmelt.com/categories/swarm/</link>
     <description>Recent content in Swarm on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Sun, 07 Dec 2014 22:17:00 +0000</lastBuildDate>
     
-	<atom:link href="http://blog.remmelt.com/categories/swarm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://www.remmelt.com/categories/swarm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Docker Swarm setup</title>
-      <link>http://blog.remmelt.com/post/docker-swarm-setup/</link>
+      <link>http://www.remmelt.com/post/docker-swarm-setup/</link>
       <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
       
-      <guid>http://blog.remmelt.com/post/docker-swarm-setup/</guid>
+      <guid>http://www.remmelt.com/post/docker-swarm-setup/</guid>
       <description>Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
 Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
 It&amp;rsquo;s currently not super easy to set up, so here is how I did it.
