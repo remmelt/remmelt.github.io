@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Osx on snips</title>
-    <link>/categories/osx/</link>
+    <link>http://blog.remmelt.com/categories/osx/</link>
     <description>Recent content in Osx on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Fri, 17 Mar 2017 21:47:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/osx/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.remmelt.com/categories/osx/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Easy headless setup for Raspberry Pi Zero W on OSX</title>
-      <link>/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</link>
+      <link>http://blog.remmelt.com/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</guid>
+      <guid>http://blog.remmelt.com/post/easy-headless-setup-for-raspberry-pi-zero-w-on-osx/</guid>
       <description>You&amp;rsquo;ve got your hands on a Rasberry Pi Zero W! Lucky you. This is a great device for IoT, monitoring, you name it. I&amp;rsquo;m building a connected wake up light.
 I will explain how to set up the Raspberry Pi Zero W in headless mode, so without using a screen or keyboard. This will likely also work for any other wifi-equipped Raspberry. You will only need to power the board.</description>
     </item>

@@ -2,165 +2,165 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on snips</title>
-    <link>/categories/</link>
+    <link>http://blog.remmelt.com/categories/</link>
     <description>Recent content in Categories on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     
-	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.remmelt.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Code</title>
-      <link>/categories/code/</link>
+      <link>http://blog.remmelt.com/categories/code/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/code/</guid>
+      <guid>http://blog.remmelt.com/categories/code/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Config</title>
-      <link>/categories/config/</link>
+      <link>http://blog.remmelt.com/categories/config/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/config/</guid>
+      <guid>http://blog.remmelt.com/categories/config/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Consul</title>
-      <link>/categories/consul/</link>
+      <link>http://blog.remmelt.com/categories/consul/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/consul/</guid>
+      <guid>http://blog.remmelt.com/categories/consul/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Docker</title>
-      <link>/categories/docker/</link>
+      <link>http://blog.remmelt.com/categories/docker/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>/categories/docker/</guid>
+      <guid>http://blog.remmelt.com/categories/docker/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Dropwizard</title>
-      <link>/categories/dropwizard/</link>
+      <link>http://blog.remmelt.com/categories/dropwizard/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/dropwizard/</guid>
+      <guid>http://blog.remmelt.com/categories/dropwizard/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Hack Time</title>
-      <link>/categories/hack-time/</link>
+      <link>http://blog.remmelt.com/categories/hack-time/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>/categories/hack-time/</guid>
+      <guid>http://blog.remmelt.com/categories/hack-time/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Java</title>
-      <link>/categories/java/</link>
+      <link>http://blog.remmelt.com/categories/java/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/java/</guid>
+      <guid>http://blog.remmelt.com/categories/java/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Jersey</title>
-      <link>/categories/jersey/</link>
+      <link>http://blog.remmelt.com/categories/jersey/</link>
       <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>/categories/jersey/</guid>
+      <guid>http://blog.remmelt.com/categories/jersey/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microservice</title>
-      <link>/categories/microservice/</link>
+      <link>http://blog.remmelt.com/categories/microservice/</link>
       <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
       
-      <guid>/categories/microservice/</guid>
+      <guid>http://blog.remmelt.com/categories/microservice/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Multipart</title>
-      <link>/categories/multipart/</link>
+      <link>http://blog.remmelt.com/categories/multipart/</link>
       <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>/categories/multipart/</guid>
+      <guid>http://blog.remmelt.com/categories/multipart/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Osx</title>
-      <link>/categories/osx/</link>
+      <link>http://blog.remmelt.com/categories/osx/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>/categories/osx/</guid>
+      <guid>http://blog.remmelt.com/categories/osx/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Postgres</title>
-      <link>/categories/postgres/</link>
+      <link>http://blog.remmelt.com/categories/postgres/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>/categories/postgres/</guid>
+      <guid>http://blog.remmelt.com/categories/postgres/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Process</title>
-      <link>/categories/process/</link>
+      <link>http://blog.remmelt.com/categories/process/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>/categories/process/</guid>
+      <guid>http://blog.remmelt.com/categories/process/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Raspberry Pi</title>
-      <link>/categories/raspberry-pi/</link>
+      <link>http://blog.remmelt.com/categories/raspberry-pi/</link>
       <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
       
-      <guid>/categories/raspberry-pi/</guid>
+      <guid>http://blog.remmelt.com/categories/raspberry-pi/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Settings</title>
-      <link>/categories/settings/</link>
+      <link>http://blog.remmelt.com/categories/settings/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>/categories/settings/</guid>
+      <guid>http://blog.remmelt.com/categories/settings/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Spotify</title>
-      <link>/categories/spotify/</link>
+      <link>http://blog.remmelt.com/categories/spotify/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>/categories/spotify/</guid>
+      <guid>http://blog.remmelt.com/categories/spotify/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Swarm</title>
-      <link>/categories/swarm/</link>
+      <link>http://blog.remmelt.com/categories/swarm/</link>
       <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
       
-      <guid>/categories/swarm/</guid>
+      <guid>http://blog.remmelt.com/categories/swarm/</guid>
       <description></description>
     </item>
     

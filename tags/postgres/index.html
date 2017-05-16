@@ -19,7 +19,7 @@
 
   	<meta property="og:title" content="Postgres &middot; snips" />
   	<meta property="og:site_name" content="snips" />
-  	<meta property="og:url" content="/tags/postgres/" />
+  	<meta property="og:url" content="http://blog.remmelt.com/tags/postgres/" />
 
     
         
@@ -41,11 +41,11 @@
     <meta name="HandheldFriendly" content="True" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="shortcut icon" href="/images/favicon.ico">
-	  <link rel="apple-touch-icon" href="/images/apple-touch-icon.png" />
+    <link rel="shortcut icon" href="http://blog.remmelt.com/images/favicon.ico">
+	  <link rel="apple-touch-icon" href="http://blog.remmelt.com/images/apple-touch-icon.png" />
 
-    <link rel="stylesheet" type="text/css" href="/css/screen.css" />
-    <link rel="stylesheet" type="text/css" href="/css/nav.css" />
+    <link rel="stylesheet" type="text/css" href="http://blog.remmelt.com/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="http://blog.remmelt.com/css/nav.css" />
 
     
 
@@ -57,15 +57,15 @@
 
     
       
-          <link href="/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
+          <link href="http://blog.remmelt.com/index.xml" rel="alternate" type="application/rss+xml" title="snips" />
       
       
-        <link href="/tags/postgres/index.xml" rel="alternate" type="application/rss+xml" title="Postgres &middot; snips" />
+        <link href="http://blog.remmelt.com/tags/postgres/index.xml" rel="alternate" type="application/rss+xml" title="Postgres &middot; snips" />
       
     
     <meta name="generator" content="Hugo 0.20.7" />
 
-    <link rel="canonical" href="/tags/postgres/" />
+    <link rel="canonical" href="http://blog.remmelt.com/tags/postgres/" />
 
     
       
@@ -80,7 +80,7 @@
         
         "image": {
             "@type": "ImageObject",
-            "url": /images/logo.jpg,
+            "url": http://blog.remmelt.com/images/logo.jpg,
             "width": 250,
             "height": 250
         },
@@ -97,10 +97,10 @@
             
         ]
     },
-    "url": /,
+    "url": http://blog.remmelt.com/,
     "mainEntityOfPage": {
         "@type": "WebPage",
-        "@id": /
+        "@id": http://blog.remmelt.com/
     },
     "description": thoughts &amp; ideas
 }
@@ -127,7 +127,7 @@
     </ul>
 
     
-    <a class="subscribe-button icon-feed" href="/tags/postgres/index.xml">Subscribe</a>
+    <a class="subscribe-button icon-feed" href="http://blog.remmelt.com/tags/postgres/index.xml">Subscribe</a>
     
 </div>
 <span class="nav-cover"></span>
@@ -144,11 +144,11 @@
 
     <nav class="main-nav overlay clearfix">
       
-        <a class="blog-logo" href="/"><img src="/images/logo.jpg" alt="Home" /></a>
+        <a class="blog-logo" href="http://blog.remmelt.com/"><img src="http://blog.remmelt.com/images/logo.jpg" alt="Home" /></a>
       
       
         
-          <a class="menu-button icon-feed" href="/tags/postgres/index.xml">&nbsp;&nbsp;Subscribe</a>
+          <a class="menu-button icon-feed" href="http://blog.remmelt.com/tags/postgres/index.xml">&nbsp;&nbsp;Subscribe</a>
         
       
     </nav>
@@ -178,13 +178,13 @@
 	   
 <article class="post post">
     <header class="post-header">
-        <h2 class="post-title"><a href="/post/start-postgres-container-and-connect-with-jdbc/">Start Postgres container and connect with JDBC</a></h2>
+        <h2 class="post-title"><a href="http://blog.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/">Start Postgres container and connect with JDBC</a></h2>
     </header>
     <section class="post-excerpt">
         
             <p>Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
 This supposes a running Docker installation on your local computer, for example using boot2docker.
-import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient. <a class="read-more" href="/post/start-postgres-container-and-connect-with-jdbc/">&raquo;</a></p>
+import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient. <a class="read-more" href="http://blog.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/">&raquo;</a></p>
         
     </section>
     <footer class="post-meta">
@@ -198,13 +198,13 @@ import com.google.common.base.Strings; import com.google.common.net.HostAndPort;
 
         on
             
-                <a href="/tags/postgres/">#postgres</a>,
+                <a href="http://blog.remmelt.com/tags/postgres/">#postgres</a>,
             
-                <a href="/tags/spotify/">#spotify</a>,
+                <a href="http://blog.remmelt.com/tags/spotify/">#spotify</a>,
             
-                <a href="/tags/docker/">#docker</a>,
+                <a href="http://blog.remmelt.com/tags/docker/">#docker</a>,
             
-                <a href="/tags/code/">#code</a>,
+                <a href="http://blog.remmelt.com/tags/code/">#code</a>,
             
         
         <time class="post-date" datetime="2015-01-14T22:57:00Z">
@@ -232,9 +232,9 @@ import com.google.common.base.Strings; import com.google.common.net.HostAndPort;
         
     </footer>
     </div>
-    <script type="text/javascript" src="/js/jquery.js"></script>
-    <script type="text/javascript" src="/js/jquery.fitvids.js"></script>
-    <script type="text/javascript" src="/js/index.js"></script>
+    <script type="text/javascript" src="http://blog.remmelt.com/js/jquery.js"></script>
+    <script type="text/javascript" src="http://blog.remmelt.com/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="http://blog.remmelt.com/js/index.js"></script>
     
 </body>
 </html>

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Microservice on snips</title>
-    <link>/categories/microservice/</link>
+    <link>http://blog.remmelt.com/categories/microservice/</link>
     <description>Recent content in Microservice on snips</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <copyright>(c) 2017 - Remmelt Pit</copyright>
     <lastBuildDate>Sun, 14 Sep 2014 21:36:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/microservice/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://blog.remmelt.com/categories/microservice/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Basic Dropwizard example</title>
-      <link>/post/basic-dropwizard-example/</link>
+      <link>http://blog.remmelt.com/post/basic-dropwizard-example/</link>
       <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
       
-      <guid>/post/basic-dropwizard-example/</guid>
+      <guid>http://blog.remmelt.com/post/basic-dropwizard-example/</guid>
       <description>I&amp;rsquo;ve been trying out Dropwizard the last couple of months and it&amp;rsquo;s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.
 I am going to write a couple of posts about Dropwizard.</description>
     </item>
