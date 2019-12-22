@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>snips  | Docker Swarm setup</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.61.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.remmelt.com/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+      <link rel="stylesheet" href="https://www.remmelt.com/css/custom.css">
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Docker Swarm setup" />
+<meta property="og:description" content="Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
+It’s currently not super easy to set up, so here is how I did it.
+Background The swarm executable discovers hosts by reading entries from the discovery url, discovery-stage.hub.docker.com/v1/clusters/TOKEN. Sample output:
+[&#34;128.199.36.196:2375&#34;,&#34;128.199.50.146:2375&#34;,&#34;128.199.32.159:2375&#34;] As you can see, this is just a list of IP/port combinations." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.remmelt.com/posts/docker-swarm-setup/" />
+<meta property="article:published_time" content="2014-12-07T22:17:00+00:00" />
+<meta property="article:modified_time" content="2014-12-07T22:17:00+00:00" />
+<meta itemprop="name" content="Docker Swarm setup">
+<meta itemprop="description" content="Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
+It’s currently not super easy to set up, so here is how I did it.
+Background The swarm executable discovers hosts by reading entries from the discovery url, discovery-stage.hub.docker.com/v1/clusters/TOKEN. Sample output:
+[&#34;128.199.36.196:2375&#34;,&#34;128.199.50.146:2375&#34;,&#34;128.199.32.159:2375&#34;] As you can see, this is just a list of IP/port combinations.">
+<meta itemprop="datePublished" content="2014-12-07T22:17:00&#43;00:00" />
+<meta itemprop="dateModified" content="2014-12-07T22:17:00&#43;00:00" />
+<meta itemprop="wordCount" content="684">
+
+
+
+<meta itemprop="keywords" content="docker,swarm," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Docker Swarm setup"/>
+<meta name="twitter:description" content="Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!
+Docker Swarm was announced at the first European DockerCon. Swarm is a pluggable cluster manager with a simple scheduler.
+It’s currently not super easy to set up, so here is how I did it.
+Background The swarm executable discovers hosts by reading entries from the discovery url, discovery-stage.hub.docker.com/v1/clusters/TOKEN. Sample output:
+[&#34;128.199.36.196:2375&#34;,&#34;128.199.50.146:2375&#34;,&#34;128.199.32.159:2375&#34;] As you can see, this is just a list of IP/port combinations."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-dark-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.remmelt.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      snips
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+<a href="https://twitter.com/remmelt_" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://github.com/remmelt" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Docker Swarm setup</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-12-07T22:17:00Z">December 7, 2014</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p><em>Edit 2015-01-07: Updated article to reflect changes in swarm. Thanks Rael!</em></p>
+<p><a href="https://github.com/docker/swarm">Docker Swarm</a> was announced at the first <a href="http://europe.dockercon.com/">European DockerCon</a>. Swarm is a pluggable cluster manager with a simple scheduler.</p>
+<p>It’s currently not super easy to set up, so here is how I did it.</p>
+<h1 id="background">Background</h1>
+<p>The <code>swarm</code> executable discovers hosts by reading entries from the discovery url, <a href="https://discovery-stage.hub.docker.com/v1/clusters/TOKEN">discovery-stage.hub.docker.com/v1/clusters/TOKEN</a>. Sample output:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[<span style="color:#e6db74">&#34;128.199.36.196:2375&#34;</span>,<span style="color:#e6db74">&#34;128.199.50.146:2375&#34;</span>,<span style="color:#e6db74">&#34;128.199.32.159:2375&#34;</span>]
+</code></pre></div><p>As you can see, this is just a list of IP/port combinations.</p>
+<p>Currently, <code>swarm</code> does not need to run on the hosts themselves. The hosts do need to run docker from the master branch, so the local <code>swarm</code> can talk to it.</p>
+<p>Here is a list of the main steps, I’ll go into more detail later. tl;dr:</p>
+<ol>
+<li>Create a <code>swarm token: swarm create</code></li>
+<li>Add hosts to the swarm: <code>swarm join --discovery=token://TOKEN --addr=host_ip:port</code></li>
+<li>Start the <code>swarm</code> manager: <code>swarm manage --discovery=token://TOKEN --host=swarm_ip:port</code></li>
+<li>Start containers in the swarm: <code>docker -H swarm_ip:port run -dP nginx</code></li>
+</ol>
+<h1 id="the-swarm-application">The <code>swarm</code> application</h1>
+<p>The <code>swarm</code> application does a couple of things. It creates a token, and you can add hosts to the discovery address with it. It also functions as a daemon with a rest API. All of these things can run from your local machine, any of your swarm hosts, or from a container.</p>
+<p>Swarm is not distributed as an executable at the moment, so we’ll have to compile it. There are multiple options.</p>
+<p>If you want to manage your swarm from OSX, install golang using Homebrew: <code>brew install go</code>. Then, get and build the swarm executable by running</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">GOPATH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> go get github.com/docker/swarm
+</code></pre></div><p>You will find the OSX <code>swarm</code> executable under bin/swarm.</p>
+<p>If you are running Linux or want to compile for running on Linux using OSX, either install go or use the official go container:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -v <span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>:/go/bin --rm golang:1.3.3 go get github.com/docker/swarm
+</code></pre></div><p>This will leave the Linux <code>swarm</code> binary in your current working directory.</p>
+<p>My favorite option is to just use a container for running swarm. You can use the image that I created in this automated swarm build or roll your own.</p>
+<h1 id="prepare-hosts">Prepare hosts</h1>
+<p>The hosts need to run docker version 1.4.0 or higher.</p>
+<p>I’m going to run this on Digital Ocean, using the docker image. Start up a new droplet, any size will do. Wait for it to boot, then ssh in and add <code>DOCKER_OPTS=&quot;-H 0.0.0.0:2375&quot;</code> to <code>/etc/default/docker</code>.</p>
+<p>Restart the daemon using sudo service docker restart</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh root@digitalocean_droplet
+service docker stop
+echo DOCKER_OPTS<span style="color:#f92672">=</span><span style="color:#ae81ff">\&#34;</span>-H 0.0.0.0:2375 -H unix://var/run/docker.sock<span style="color:#ae81ff">\&#34;</span> &gt;&gt; /etc/default/docker
+service docker start
+</code></pre></div><p>Repeat for all the hosts that you want to manage. Done!</p>
+<h1 id="manager">Manager</h1>
+<p>Now we’re ready to start managing.</p>
+<h2 id="create-a-new-swarm-token">Create a new swarm token</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swarm create
+</code></pre></div><p>will spit out a token. If you're using the swarm image, go</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run –rm remmelt/swarm create
+</code></pre></div><h2 id="add-each-of-your-hosts-to-the-swarm">Add each of your hosts to the swarm</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swarm join –discovery<span style="color:#f92672">=</span>token://TOKEN –addr<span style="color:#f92672">=</span>a.b.c.d:2375
+</code></pre></div><p>This will add address <code>a.b.c.d:2375</code> to the swarm. Remember that you can see what is in the swarm by surfing to the <a href="https://discovery-stage.hub.docker.com/v1/clusters/TOKEN">dicovery url</a>.
+Running the image? Enter</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run –rm remmelt/swarm join –discovery<span style="color:#f92672">=</span>token://TOKEN –addr<span style="color:#f92672">=</span>a.b.c.d:2375
+</code></pre></div><p>Note that this command does not currently return. Once the IP has been added to the swarm, you can ctrl-c out. The <code>join</code> command does not need to keep running to stay joined.</p>
+<h2 id="start-the-management-api">Start the management API</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swarm manage –discovery<span style="color:#f92672">=</span>token://TOKEN –host<span style="color:#f92672">=</span>0.0.0.0:4243
+</code></pre></div><p>This will start the management API. Image:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run –rm -p 4243:4243 remmelt/swarm manage –discovery<span style="color:#f92672">=</span>token://XXXX –host<span style="color:#f92672">=</span>0.0.0.0:4243 <span style="color:#e6db74">`</span><span style="color:#e6db74">`</span><span style="color:#e6db74">`</span> <span style="color:#f92672">(</span>we need the port to communicate with the API<span style="color:#f92672">)</span>.
+</code></pre></div><h2 id="start-a-container">Start a container</h2>
+<p>Use the docker binary to start a container as usual, but make sure the <code>-H</code> flag points to the host you’re running swarm manage on. In my case, that’s boot2docker.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker -H boot2docker:4243 run -dP nginx
+</code></pre></div><p>This will take a while, one of the nodes is downloading the nginx image. The command will return once the container has started.</p>
+<h2 id="list-nodes">List nodes</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">swarm list --discovery<span style="color:#f92672">=</span>token://TOKEN
+</code></pre></div><p>or</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run --rm remmelt/swarm list --discovery<span style="color:#f92672">=</span>token://TOKEN
+</code></pre></div><h2 id="list-containers">List containers</h2>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker -H boot2docker:4243 ps
+</code></pre></div><p>Note the names of the containers, they start with the name of the node they’re running on.</p>
+<p>Troubleshooting
+If you’re getting a
+<code>tls: oversized record received with length</code>
+error, run <code>unset DOCKER_TLS_VERIFY</code> and it will work.</p>
+<p>Happy swarming!</p>
+<ul class="pa0">
+  
+   <li class="list">
+     <a href="https://www.remmelt.com/tags/docker" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">docker</a>
+   </li>
+  
+   <li class="list">
+     <a href="https://www.remmelt.com/tags/swarm" class="link f5 grow no-underline br-pill ba ph3 pv2 mb2 dib black sans-serif">swarm</a>
+   </li>
+  
+</ul>
+<div class="mt6">
+      
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blogremmeltcom" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+  <div class="bg-light-gray pa3 nested-list-reset nested-copy-line-height nested-links">
+    <p class="f5 b mb3">Related</p>
+    <ul class="pa0 list">
+	   
+	     <li  class="mb2">
+          <a href="https://www.remmelt.com/posts/service-discovering-docker-cluster-on-digital-ocean/">Service discovering Docker cluster on Digital Ocean</a>
+        </li>
+	    
+    </ul>
+</div>
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-dark-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.remmelt.com" >
+    &copy; 2019 snips
+  </a>
+    <div>
+
+
+
+<a href="https://twitter.com/remmelt_" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://github.com/remmelt" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.remmelt.com/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

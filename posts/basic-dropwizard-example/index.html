@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    
+    <title>snips  | Basic Dropwizard example</title>
+    <meta name="viewport" content="width=device-width,minimum-scale=1">
+    <meta name="generator" content="Hugo 0.61.0" />
+    
+    
+      <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+    
+
+    
+    
+      <link href="https://www.remmelt.com/dist/css/app.d98f2eb6bcd1eaedb7edf166bd16af26.css" rel="stylesheet">
+    
+
+    
+      <link rel="stylesheet" href="https://www.remmelt.com/css/custom.css">
+    
+
+    
+      
+    
+
+    
+    
+    <meta property="og:title" content="Basic Dropwizard example" />
+<meta property="og:description" content="I’ve been trying out Dropwizard the last couple of months and it’s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.
+I am going to write a couple of posts about Dropwizard." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.remmelt.com/posts/basic-dropwizard-example/" />
+<meta property="article:published_time" content="2014-09-14T21:36:00+00:00" />
+<meta property="article:modified_time" content="2014-09-14T21:36:00+00:00" />
+<meta itemprop="name" content="Basic Dropwizard example">
+<meta itemprop="description" content="I’ve been trying out Dropwizard the last couple of months and it’s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.
+I am going to write a couple of posts about Dropwizard.">
+<meta itemprop="datePublished" content="2014-09-14T21:36:00&#43;00:00" />
+<meta itemprop="dateModified" content="2014-09-14T21:36:00&#43;00:00" />
+<meta itemprop="wordCount" content="487">
+
+
+
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Basic Dropwizard example"/>
+<meta name="twitter:description" content="I’ve been trying out Dropwizard the last couple of months and it’s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.
+I am going to write a couple of posts about Dropwizard."/>
+
+  </head>
+
+  <body class="ma0 avenir bg-near-white">
+
+    
+   
+  
+
+  <header>
+    <div class="bg-dark-gray">
+      <nav class="pv3 ph3 ph4-ns" role="navigation">
+  <div class="flex-l justify-between items-center center">
+    <a href="https://www.remmelt.com" class="f3 fw2 hover-white no-underline white-90 dib">
+      snips
+    </a>
+    <div class="flex-l items-center">
+      
+
+      
+      
+
+
+
+<a href="https://twitter.com/remmelt_" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://github.com/remmelt" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+
+    </div>
+  </div>
+</nav>
+
+    </div>
+  </header>
+
+
+
+    <main class="pb7" role="main">
+      
+  
+  <article class="flex-l flex-wrap justify-between mw8 center ph3">
+
+    <header class="mt4 w-100">
+      <p class="f6 b helvetica tracked">
+          
+        POSTS
+      </p>
+      <h1 class="f1 athelas mb1">Basic Dropwizard example</h1>
+      
+      
+      <time class="f6 mv4 dib tracked" datetime="2014-09-14T21:36:00Z">September 14, 2014</time>
+      
+      
+    </header>
+
+    <section class="nested-copy-line-height lh-copy serif f4 nested-links nested-img mid-gray pr4-l w-two-thirds-l"><p>I’ve been trying out <a href="https://dropwizard.github.io/dropwizard/">Dropwizard</a> the last couple of months and it’s been very nice. There are many, many frameworks to choose from in Java country, so it comes as a relief to have a bunch of them chosen for me. Dropwizard glues Jersey, Jetty, Jackson and more together. The end result is a reduction in boiler plate code and complexity. Great for micro services.</p>
+<p>I am going to write a couple of posts about Dropwizard. The next one will add a secured resource using OAuth2, and there will also be an example using JWT.</p>
+<h2 id="goal">Goal</h2>
+<p>This is an example of a very basic Dropwizard resource. The goal is to have a simple, tested API endpoint on <code>/ping</code> that returns <code>pong</code>.</p>
+<h2 id="heading"></h2>
+<p>First steps
+Clone the example repository by running</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone https://github.com/remmelt/dropwizard-ping.git
+</code></pre></div><p>and checking out tag “ping-resource” or you can browse the code at <a href="https://github.com/remmelt/dropwizard-ping">GitHub</a>.</p>
+<p>First things first. Create a banner.txt in <code>src/main/resources</code>. This banner will be displayed when you start up your Dropwizard application, so make it look nice. Now we have that important step out of the way, let’s move on.</p>
+<p>The <code>pom.xml</code> is straightforward, following suggestions in the docs about the shade plugin.</p>
+<h2 id="the-application">The Application</h2>
+<p>The <code>PingApplication</code> is quite empty, it just registers the Ping resource and a single health check so Dropwizard doesn’t complain on start up.</p>
+<p>Next is the configuration class <code>PingConfiguration</code>. Also empty for now.</p>
+<p>Note that the <code>config.yml</code> in <code>src/main/resources</code> contains a redundant logging configuration. This is so Dropwizard picks up the file as YAML instead of JSON. If you don’t do this, the application will throw a <code>NullPointerException</code> on startup without any clue as to what might be the problem.</p>
+<h2 id="ping-resource">Ping resource</h2>
+<p>The interesting bits are in the <code>PingResource</code> class. This doesn’t do much currently, it just returns a small JSON string.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">package</span> com.remmelt.examples.resources<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> com.codahale.metrics.annotation.Timed<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> lombok.AllArgsConstructor<span style="color:#f92672">;</span>
+
+<span style="color:#f92672">import</span> javax.ws.rs.GET<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.ws.rs.Path<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.ws.rs.Produces<span style="color:#f92672">;</span>
+<span style="color:#f92672">import</span> javax.ws.rs.core.MediaType<span style="color:#f92672">;</span>
+
+<span style="color:#a6e22e">@Path</span><span style="color:#f92672">(</span><span style="color:#e6db74">&#34;/ping&#34;</span><span style="color:#f92672">)</span>
+<span style="color:#a6e22e">@Produces</span><span style="color:#f92672">(</span>MediaType<span style="color:#f92672">.</span><span style="color:#a6e22e">APPLICATION_JSON</span><span style="color:#f92672">)</span>
+<span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">PingResource</span> <span style="color:#f92672">{</span>
+	<span style="color:#a6e22e">@GET</span>
+	<span style="color:#a6e22e">@Timed</span>
+	<span style="color:#66d9ef">public</span> String <span style="color:#a6e22e">pong</span><span style="color:#f92672">(</span><span style="color:#f92672">)</span> <span style="color:#f92672">{</span>
+		<span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;{\&#34;answer\&#34;: \&#34;pong\&#34;}&#34;</span><span style="color:#f92672">;</span>
+	<span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Package the app with <code>mvn clean package</code> and run by issueing <code>java -jar target/dropwizard-ping-1.0-SNAPSHOT.jar server src/main/resources/config.yml</code>.</p>
+<p>You can now browse to localhost:8080/ping or run curl <a href="http://localhost:8080/ping">localhost:8080/ping</a>. I would also suggest installing <a href="https://github.com/jakubroztocil/httpie">HTTPie</a>, makes life a lot easier (and prettier!)</p>
+<pre><code>% http localhost:8080/ping
+HTTP/1.1 200 OK
+Content-Encoding: gzip
+Content-Type: application/json
+Date: Fri, 04 Jul 2014 22:59:43 GMT
+Transfer-Encoding: chunked
+Vary: Accept-Encoding
+
+{
+    &quot;answer&quot;: &quot;pong&quot;
+}
+</code></pre><p>Note that you can interact with the Dropwizard application on port <a href="http://localhost:8081/">8081</a> as well. This is the admin interface that returns json-encoded information about the state of the app. Earlier, I’ve annotated the <code>pong</code> resource method with <a href="https://dropwizard.github.io/dropwizard/manual/core.html#metrics"><code>@Timed</code></a>. We can now track interesting statistics on the number of calls and timing of the method invocation under the metrics header.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>As promised, it’s very easy to get going with Dropwizard. Most boiler plate code has been taken care of by the framework and there are already some interesting things we can do.</p>
+<ul class="pa0">
+  
+</ul>
+<div class="mt6">
+      
+        <div id="disqus_thread"></div>
+<script type="application/javascript">
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "blogremmeltcom" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+      
+      
+      </div>
+    </section>
+
+    <aside class="w-30-l mt6-l">
+
+
+
+
+</aside>
+
+  </article>
+
+    </main>
+    <footer class="bg-dark-gray bottom-0 w-100 pa3" role="contentinfo">
+  <div class="flex justify-between">
+  <a class="f4 fw4 hover-white no-underline white-70 dn dib-ns pv2 ph3" href="https://www.remmelt.com" >
+    &copy; 2019 snips
+  </a>
+    <div>
+
+
+
+<a href="https://twitter.com/remmelt_" target="_blank" class="link-transition twitter link dib z-999 pt3 pt0-l mr1" title="Twitter link" rel="noopener" aria-label="follow on Twitter——Opens in a new window">
+  <svg height="32px"  style="enable-background:new 0 0 67 67;" version="1.1" viewBox="0 0 67 67" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><path d="M37.167,22.283c-2.619,0.953-4.274,3.411-4.086,6.101  l0.063,1.038l-1.048-0.127c-3.813-0.487-7.145-2.139-9.974-4.915l-1.383-1.377l-0.356,1.017c-0.754,2.267-0.272,4.661,1.299,6.271  c0.838,0.89,0.649,1.017-0.796,0.487c-0.503-0.169-0.943-0.296-0.985-0.233c-0.146,0.149,0.356,2.076,0.754,2.839  c0.545,1.06,1.655,2.097,2.871,2.712l1.027,0.487l-1.215,0.021c-1.173,0-1.215,0.021-1.089,0.467  c0.419,1.377,2.074,2.839,3.918,3.475l1.299,0.444l-1.131,0.678c-1.676,0.976-3.646,1.526-5.616,1.568  C19.775,43.256,19,43.341,19,43.405c0,0.211,2.557,1.397,4.044,1.864c4.463,1.377,9.765,0.783,13.746-1.568  c2.829-1.673,5.657-5,6.978-8.221c0.713-1.716,1.425-4.851,1.425-6.354c0-0.975,0.063-1.102,1.236-2.267  c0.692-0.678,1.341-1.419,1.467-1.631c0.21-0.403,0.188-0.403-0.88-0.043c-1.781,0.636-2.033,0.551-1.152-0.402  c0.649-0.678,1.425-1.907,1.425-2.267c0-0.063-0.314,0.042-0.671,0.233c-0.377,0.212-1.215,0.53-1.844,0.72l-1.131,0.361l-1.027-0.7  c-0.566-0.381-1.361-0.805-1.781-0.932C39.766,21.902,38.131,21.944,37.167,22.283z M33,64C16.432,64,3,50.569,3,34S16.432,4,33,4  s30,13.431,30,30S49.568,64,33,64z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/></svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+<a href="https://github.com/remmelt" target="_blank" class="link-transition github link dib z-999 pt3 pt0-l mr1" title="Github link" rel="noopener" aria-label="follow on Github——Opens in a new window">
+  <svg  height="32px"  style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512" width="32px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+  <path d="M256,32C132.3,32,32,134.8,32,261.7c0,101.5,64.2,187.5,153.2,217.9c11.2,2.1,15.3-5,15.3-11.1   c0-5.5-0.2-19.9-0.3-39.1c-62.3,13.9-75.5-30.8-75.5-30.8c-10.2-26.5-24.9-33.6-24.9-33.6c-20.3-14.3,1.5-14,1.5-14   c22.5,1.6,34.3,23.7,34.3,23.7c20,35.1,52.4,25,65.2,19.1c2-14.8,7.8-25,14.2-30.7c-49.7-5.8-102-25.5-102-113.5   c0-25.1,8.7-45.6,23-61.6c-2.3-5.8-10-29.2,2.2-60.8c0,0,18.8-6.2,61.6,23.5c17.9-5.1,37-7.6,56.1-7.7c19,0.1,38.2,2.6,56.1,7.7   c42.8-29.7,61.5-23.5,61.5-23.5c12.2,31.6,4.5,55,2.2,60.8c14.3,16.1,23,36.6,23,61.6c0,88.2-52.4,107.6-102.3,113.3   c8,7.1,15.2,21.1,15.2,42.5c0,30.7-0.3,55.5-0.3,63c0,6.1,4,13.3,15.4,11C415.9,449.1,480,363.1,480,261.7   C480,134.8,379.7,32,256,32z"/>
+</svg>
+
+<span class="new-window"><svg  height="8px"  style="enable-background:new 0 0 1000 1000;" version="1.1" viewBox="0 0 1000 1000" width="8px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" >
+<path d="M598 128h298v298h-86v-152l-418 418-60-60 418-418h-152v-86zM810 810v-298h86v298c0 46-40 86-86 86h-596c-48 0-86-40-86-86v-596c0-46 38-86 86-86h298v86h-298v596h596z" style="fill-rule:evenodd;clip-rule:evenodd;fill:;"/>
+</svg>
+</span></a>
+
+
+
+
+
+</div>
+  </div>
+</footer>
+
+    
+
+  <script src="https://www.remmelt.com/dist/js/app.3fc0f988d21662902933.js"></script>
+
+
+  </body>
+</html>

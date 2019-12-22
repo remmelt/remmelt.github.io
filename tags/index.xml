@@ -1,167 +1,166 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on snips</title>
-    <link>http://www.remmelt.com/tags/</link>
+    <link>https://www.remmelt.com/tags/</link>
     <description>Recent content in Tags on snips</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>(c) 2017 - Remmelt Pit</copyright>
-    <lastBuildDate>Tue, 09 Jun 2015 20:18:00 +0000</lastBuildDate>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Dec 2019 23:56:05 +0100</lastBuildDate>
     
-	<atom:link href="http://www.remmelt.com/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.remmelt.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Code</title>
-      <link>http://www.remmelt.com/tags/code/</link>
+      <title>arduino</title>
+      <link>https://www.remmelt.com/tags/arduino/</link>
+      <pubDate>Fri, 06 Dec 2019 23:56:05 +0100</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/arduino/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>mechanical keyboards</title>
+      <link>https://www.remmelt.com/tags/mechanical-keyboards/</link>
+      <pubDate>Fri, 06 Dec 2019 23:56:05 +0100</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/mechanical-keyboards/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>qmk</title>
+      <link>https://www.remmelt.com/tags/qmk/</link>
+      <pubDate>Fri, 06 Dec 2019 23:56:05 +0100</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/qmk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>code</title>
+      <link>https://www.remmelt.com/tags/code/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/code/</guid>
+      <guid>https://www.remmelt.com/tags/code/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Config</title>
-      <link>http://www.remmelt.com/tags/config/</link>
+      <title>config</title>
+      <link>https://www.remmelt.com/tags/config/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/config/</guid>
+      <guid>https://www.remmelt.com/tags/config/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Consul</title>
-      <link>http://www.remmelt.com/tags/consul/</link>
+      <title>consul</title>
+      <link>https://www.remmelt.com/tags/consul/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/consul/</guid>
+      <guid>https://www.remmelt.com/tags/consul/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Docker</title>
-      <link>http://www.remmelt.com/tags/docker/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dropwizard</title>
-      <link>http://www.remmelt.com/tags/dropwizard/</link>
+      <title>dropwizard</title>
+      <link>https://www.remmelt.com/tags/dropwizard/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/dropwizard/</guid>
+      <guid>https://www.remmelt.com/tags/dropwizard/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Hack Time</title>
-      <link>http://www.remmelt.com/tags/hack-time/</link>
+      <title>java</title>
+      <link>https://www.remmelt.com/tags/java/</link>
+      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/java/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>settings</title>
+      <link>https://www.remmelt.com/tags/settings/</link>
+      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/settings/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hack time</title>
+      <link>https://www.remmelt.com/tags/hack-time/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/hack-time/</guid>
+      <guid>https://www.remmelt.com/tags/hack-time/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Java</title>
-      <link>http://www.remmelt.com/tags/java/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jersey</title>
-      <link>http://www.remmelt.com/tags/jersey/</link>
-      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/jersey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservice</title>
-      <link>http://www.remmelt.com/tags/microservice/</link>
-      <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/microservice/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Multipart</title>
-      <link>http://www.remmelt.com/tags/multipart/</link>
-      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/multipart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Osx</title>
-      <link>http://www.remmelt.com/tags/osx/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/osx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Postgres</title>
-      <link>http://www.remmelt.com/tags/postgres/</link>
-      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/tags/postgres/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Process</title>
-      <link>http://www.remmelt.com/tags/process/</link>
+      <title>process</title>
+      <link>https://www.remmelt.com/tags/process/</link>
       <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/process/</guid>
+      <guid>https://www.remmelt.com/tags/process/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Raspberry Pi</title>
-      <link>http://www.remmelt.com/tags/raspberry-pi/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
+      <title>jersey</title>
+      <link>https://www.remmelt.com/tags/jersey/</link>
+      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/raspberry-pi/</guid>
+      <guid>https://www.remmelt.com/tags/jersey/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Settings</title>
-      <link>http://www.remmelt.com/tags/settings/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
+      <title>multipart</title>
+      <link>https://www.remmelt.com/tags/multipart/</link>
+      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/settings/</guid>
+      <guid>https://www.remmelt.com/tags/multipart/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Spotify</title>
-      <link>http://www.remmelt.com/tags/spotify/</link>
+      <title>docker</title>
+      <link>https://www.remmelt.com/tags/docker/</link>
       <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/spotify/</guid>
+      <guid>https://www.remmelt.com/tags/docker/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Swarm</title>
-      <link>http://www.remmelt.com/tags/swarm/</link>
+      <title>postgrtes</title>
+      <link>https://www.remmelt.com/tags/postgrtes/</link>
+      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/postgrtes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>spotify</title>
+      <link>https://www.remmelt.com/tags/spotify/</link>
+      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
+      
+      <guid>https://www.remmelt.com/tags/spotify/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>swarm</title>
+      <link>https://www.remmelt.com/tags/swarm/</link>
       <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/tags/swarm/</guid>
+      <guid>https://www.remmelt.com/tags/swarm/</guid>
       <description></description>
     </item>
     

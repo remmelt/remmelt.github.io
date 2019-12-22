@@ -1,166 +1,31 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on snips</title>
-    <link>http://www.remmelt.com/categories/</link>
+    <link>https://www.remmelt.com/categories/</link>
     <description>Recent content in Categories on snips</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>(c) 2017 - Remmelt Pit</copyright>
+    <language>en</language>
+    <lastBuildDate>Sun, 14 Sep 2014 21:36:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.remmelt.com/categories/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.remmelt.com/categories/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>Code</title>
-      <link>http://www.remmelt.com/categories/code/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/code/</guid>
-      <description></description>
-    </item>
     
     <item>
-      <title>Config</title>
-      <link>http://www.remmelt.com/categories/config/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/config/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Consul</title>
-      <link>http://www.remmelt.com/categories/consul/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/consul/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Docker</title>
-      <link>http://www.remmelt.com/categories/docker/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/docker/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Dropwizard</title>
-      <link>http://www.remmelt.com/categories/dropwizard/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/dropwizard/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hack Time</title>
-      <link>http://www.remmelt.com/categories/hack-time/</link>
-      <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/hack-time/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Java</title>
-      <link>http://www.remmelt.com/categories/java/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/java/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Jersey</title>
-      <link>http://www.remmelt.com/categories/jersey/</link>
-      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/jersey/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Microservice</title>
-      <link>http://www.remmelt.com/categories/microservice/</link>
+      <title>dropwizard</title>
+      <link>https://www.remmelt.com/categories/dropwizard/</link>
       <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/categories/microservice/</guid>
+      <guid>https://www.remmelt.com/categories/dropwizard/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Multipart</title>
-      <link>http://www.remmelt.com/categories/multipart/</link>
-      <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
+      <title>microservice</title>
+      <link>https://www.remmelt.com/categories/microservice/</link>
+      <pubDate>Sun, 14 Sep 2014 21:36:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/categories/multipart/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Osx</title>
-      <link>http://www.remmelt.com/categories/osx/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/osx/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Postgres</title>
-      <link>http://www.remmelt.com/categories/postgres/</link>
-      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/postgres/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Process</title>
-      <link>http://www.remmelt.com/categories/process/</link>
-      <pubDate>Tue, 02 Jun 2015 11:41:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/process/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Raspberry Pi</title>
-      <link>http://www.remmelt.com/categories/raspberry-pi/</link>
-      <pubDate>Fri, 17 Mar 2017 21:47:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/raspberry-pi/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Settings</title>
-      <link>http://www.remmelt.com/categories/settings/</link>
-      <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/settings/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Spotify</title>
-      <link>http://www.remmelt.com/categories/spotify/</link>
-      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/spotify/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Swarm</title>
-      <link>http://www.remmelt.com/categories/swarm/</link>
-      <pubDate>Sun, 07 Dec 2014 22:17:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/categories/swarm/</guid>
+      <guid>https://www.remmelt.com/categories/microservice/</guid>
       <description></description>
     </item>
     

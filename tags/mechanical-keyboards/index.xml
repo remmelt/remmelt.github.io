@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>mechanical keyboards on snips</title>
+    <link>https://www.remmelt.com/tags/mechanical-keyboards/</link>
+    <description>Recent content in mechanical keyboards on snips</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 06 Dec 2019 23:56:05 +0100</lastBuildDate>
+    
+	<atom:link href="https://www.remmelt.com/tags/mechanical-keyboards/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flashing QMK DFU firmware on a Pro Micro</title>
+      <link>https://www.remmelt.com/posts/flashing-qmk-dfu-on-pro-micro/</link>
+      <pubDate>Fri, 06 Dec 2019 23:56:05 +0100</pubDate>
+      
+      <guid>https://www.remmelt.com/posts/flashing-qmk-dfu-on-pro-micro/</guid>
+      <description>Naming things is hard. As a software engineer, I know this all to well. The times I&#39;ve puzzled, despared, cursed at whoever named some variable, only to have git blame tell me that this particular variable was added by a certain remmelt&amp;hellip;
+Either way. In this post I will document the steps I took to flash the qmk-dfu bootloader onto a Pro Micro Arduino clone.
+Terms First off, here are some terms I&#39;ll be using.</description>
+    </item>
+    
+  </channel>
+</rss>

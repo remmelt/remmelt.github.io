@@ -1,52 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Code on snips</title>
-    <link>http://www.remmelt.com/tags/code/</link>
-    <description>Recent content in Code on snips</description>
+    <title>code on snips</title>
+    <link>https://www.remmelt.com/tags/code/</link>
+    <description>Recent content in code on snips</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-US</language>
-    <copyright>(c) 2017 - Remmelt Pit</copyright>
+    <language>en</language>
     <lastBuildDate>Tue, 09 Jun 2015 20:18:00 +0000</lastBuildDate>
     
-	<atom:link href="http://www.remmelt.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://www.remmelt.com/tags/code/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Use Consul&#39;s KV store for Dropwizard settings</title>
-      <link>http://www.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</link>
+      <link>https://www.remmelt.com/posts/use-consuls-kv-store-for-dropwizard-settings/</link>
       <pubDate>Tue, 09 Jun 2015 20:18:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/post/use-consuls-kv-store-for-dropwizard-settings/</guid>
-      <description>I wanted to see how hard it would be to get Dropwizard config from Consul&amp;rsquo;s key value store. Turns out it is very easy to do!
-Make sure you&amp;rsquo;re using Dropwizard &amp;gt;= 0.8.0, this has the SubstitutingSourceProvider that we&amp;rsquo;re going to use.
+      <guid>https://www.remmelt.com/posts/use-consuls-kv-store-for-dropwizard-settings/</guid>
+      <description>I wanted to see how hard it would be to get Dropwizard config from Consul’s key value store. Turns out it is very easy to do!
+Make sure you’re using Dropwizard &amp;gt;= 0.8.0, this has the SubstitutingSourceProvider that we’re going to use.
 Create a default Dropwizard project with the following configuration line in its config.yml:
-someSetting: ${settings/someSetting}  Don&amp;rsquo;t forget to add it to the xxxConfiguration:
-@JsonProperty @NotEmpty private String someSetting;  Now in the xxxApplication class, register a new ConsulKVSubstitutor in the initialize method:</description>
+someSetting: ${settings/someSetting}
+Don’t forget to add it to the xxxConfiguration:
+@JsonProperty @NotEmpty private String someSetting; Now in the xxxApplication class, register a new ConsulKVSubstitutor in the initialize method:</description>
     </item>
     
     <item>
       <title>File upload using Dropwizard 0.8.0-rc2</title>
-      <link>http://www.remmelt.com/post/file-upload-using-dropwizard-0-8-0-rc2/</link>
+      <link>https://www.remmelt.com/posts/file-upload-using-dropwizard-0-8-0-rc2/</link>
       <pubDate>Sun, 15 Feb 2015 21:27:00 +0000</pubDate>
       
-      <guid>http://www.remmelt.com/post/file-upload-using-dropwizard-0-8-0-rc2/</guid>
+      <guid>https://www.remmelt.com/posts/file-upload-using-dropwizard-0-8-0-rc2/</guid>
       <description>Dropwizard 0.7.1 used com.sun.jersey:jersey-server:jar:1.18.1, where version 0.8.0 comes with org.glassfish.jersey.core:jersey-server:jar:2.15.
 Before, when uploading files, it was enough to add the com.sun.jersey.contribs:jersey-multipart dependency like so:
-&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.sun.jersey.contribs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jersey-multipart&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.18.3&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  This will not work anymore and throws the somewhat cryptic exception: java.lang.IllegalArgumentException: The MultiPartConfig instance we expected is not present. Have you registered the MultiPartConfigProvider class?
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;com.sun.jersey.contribs&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jersey-multipart&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;1.18.3&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; This will not work anymore and throws the somewhat cryptic exception: java.lang.IllegalArgumentException: The MultiPartConfig instance we expected is not present. Have you registered the MultiPartConfigProvider class?
 The correct dependency should be
-&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.glassfish.jersey.media&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jersey-media-multipart&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.15&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt;  Update your imports and you&amp;rsquo;re good to go.</description>
-    </item>
-    
-    <item>
-      <title>Start Postgres container and connect with JDBC</title>
-      <link>http://www.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</link>
-      <pubDate>Wed, 14 Jan 2015 22:57:00 +0000</pubDate>
-      
-      <guid>http://www.remmelt.com/post/start-postgres-container-and-connect-with-jdbc/</guid>
-      <description>Quick example of how to set up a Docker container with Postgresql, using the Spotify Docker Java client.
-This supposes a running Docker installation on your local computer, for example using boot2docker.
-import com.google.common.base.Strings; import com.google.common.net.HostAndPort; import com.spotify.docker.client.DefaultDockerClient; import com.spotify.docker.client.DockerCertificateException; import com.spotify.docker.client.DockerClient; import com.spotify.docker.client.DockerException; import com.spotify.docker.client.messages.ContainerConfig; import com.spotify.docker.client.messages.ContainerCreation; import com.spotify.docker.client.messages.ContainerInfo; import com.spotify.docker.client.messages.HostConfig; import lombok.extern.slf4j.Slf4j; import java.sql.Connection; import java.sql.DriverManager; import java.sql.SQLException; @Slf4j public abstract class PostgresContainerExample { public static Connection setUpDbContainer() throws SQLException { try { // This will only work with the DOCKER_HOST environment variable set final DockerClient docker = DefaultDockerClient.</description>
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.glassfish.jersey.media&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;jersey-media-multipart&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;2.15&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Update your imports and you’re good to go.</description>
     </item>
     
   </channel>
